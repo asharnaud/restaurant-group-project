@@ -1,5 +1,5 @@
 # Restaurant Group Project
-[![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
 
 > This is our Iron Yard midterm group project. It is a cajun restaurant website mockup with the following deliverables:
 
@@ -37,4 +37,4 @@ Built with:
 ***
 ## Credits
 
-This project was done by myself and [Pablo Jurado](https://github.com/pablo-jurado). Team Cajun!  :fried_shrimp::metal: 
+This project was done by myself and [Pablo Jurado](https://github.com/pablo-jurado). Team Cajun!  :fried_shrimp::metal:
