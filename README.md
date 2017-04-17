@@ -15,8 +15,6 @@
 * Add the ability to display comments [(Disqus)](https://disqus.com/)
 * Responsive
 
-***
-
 ## Tech/framework used
 
 Built with:
@@ -27,14 +25,11 @@ Built with:
 * JQuery
 * AJAX
 
-***
-
 ## API Reference
 * [Custom Restaurant API](https://json-data.herokuapp.com/restaurant)
 * [Flickr's Photo API](https://www.flickr.com/services/api/)
 * [Google Maps Embed API](https://developers.google.com/maps/documentation/embed/)
 
-***
 ## Credits
 
 This project was done by myself and [Pablo Jurado](https://github.com/pablo-jurado). Team Cajun!  :fried_shrimp::metal:
