@@ -17,7 +17,7 @@ header {
   border: solid 1px black;
   display: flex;
   flex-flow: row; }
-  .feeds-wrapper div {
+  .feeds-wrapper .feed {
     border: solid 1px black;
     flex: 1;
     padding: 15px;
