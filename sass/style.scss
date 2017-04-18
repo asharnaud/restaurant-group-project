@@ -25,7 +25,16 @@ header {
     flex: 1;
     padding: 15px;
     height: 250px;
+  }
+}
+
+.latest-news {
+  flex: 1;
+  min-width: 0;
+  p {
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

@@ -16,11 +16,11 @@ function initMap () {
 // This retrieves the news api data and replaces the html of the news section with what is retrieved.
 function dataToEl (data) {
   $('#title').html(data.title + '  ' + data.date_published)
-  $('.latest-news p').html(data.post)
+  $('#news').html(data.post)
 }
 
 function responseFail () {
-  $('.latest-news p').html('Oh no! Sorry, looks like something went wrong on our end.')
+  $('#news').html('Oh no! Sorry, looks like something went wrong on our end.')
 }
 
 var url = 'https://json-data.herokuapp.com/restaurant/news/1'
