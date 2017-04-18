@@ -13,11 +13,15 @@ function initMap () {
   })
 }
 
-// This retrieves the news api and replaces the html of the news section with what is retrieved.
-$.get('https://json-data.herokuapp.com/restaurant/news/1', function (data) {
+// This retrieves the news api data and replaces the html of the news section with what is retrieved.
+function dataToEl (data) {
   $('#title').html(data.title + '  ' + data.date_published)
   $('.latest-news p').html(data.post)
-})
-.fail(function () {
+}
+
+function responseFail () {
   $('.latest-news p').html('Oh no! Sorry, looks like something went wrong on our end.')
-})
+}
+
+var url = 'https://json-data.herokuapp.com/restaurant/news/1'
+apiCall = $.get(url, dataToEl).done(dataToEl).fail(responseFail)
