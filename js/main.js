@@ -25,3 +25,16 @@ function responseFail () {
 
 var url = 'https://json-data.herokuapp.com/restaurant/news/1'
 apiCall = $.get(url, dataToEl).done(dataToEl).fail(responseFail)
+
+// This retrieves the daily special api data and replaces the html of the today's special section with what is retrieved.
+function dataToSpecial (data) {
+  console.log(data)
+  $('#dailySpecial').html(data.menu_item_id)
+}
+
+function responseFailSpecial () {
+  $('#dailySpecial').html('Oh no! Sorry, looks like something went wrong on our end.')
+}
+
+var specialURL = 'https://json-data.herokuapp.com/restaurant/special/1'
+speicalApiCall = $.get(specialURL, dataToSpecial).done(dataToSpecial).fail(responseFailSpecial)
