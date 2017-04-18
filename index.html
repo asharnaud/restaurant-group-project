@@ -6,6 +6,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <script src="https://use.fontawesome.com/a2e30851ba.js"></script>
     <title>The Black Pot</title>
+    <style>
+      #map {
+        height: 200px;
+        width: 33%;
+       }
+    </style>
   </head>
   <body>
     <div class="full-layout">
@@ -20,7 +26,7 @@
         </div>
       </header>
       <img src="" alt="">
-    <div class="news-special-loation">
+    <div class="news-special-location">
       <div class="latest-news">
         <h5>Latest News</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis finibus, orci vitae viverra convallis, sapien nunc hendrerit eros, nec tincidunt purus elit blandit tortor. Morbi at dolor vel sem vestibulum sodales pulvinar non lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vulputate mauris finibus, semper urna vitae, semper odio. Curabitur sed erat cursus, vehicula est vitae, convallis nulla. Proin a pretium ipsum. Ut non vestibulum tellus, eget mattis nibh. Morbi in sem lacus.</p>
@@ -31,9 +37,8 @@
         <p>Lorem ipsum dolor sit amet.......................27</p>
         <p>Phasellus id convallis tellus. Nunc vitae rutrum felis. Fusce sed fermentum velit. Phasellus posuere rutrum posuere. Vestibulum velit tortor, venenatis vitae porta quis, fermentum vitae nibh.</p>
       </div>
-      <div class="our-location">
+      <div id="map" class="our-location">
         <h5>Our Location</h5>
-        <img src="" alt="">
         <p>123 Main Street, New York, NY 12345</p>
         <p>555-555-1234 - 555-555-1234 - Map - Directions</p>
       </div>
@@ -80,6 +85,8 @@
       <i class="fa fa-copyright" aria-hidden="true"> 2010 The Black Pot</i>
     </footer>
   </div>
-
+    <script src="main.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVxQERF4WSusdYUnswuFuJ7kM59HEkGb4&callback=initMap"></script>
   </body>
 </html>
