@@ -17,7 +17,6 @@ header {
   flex-flow: row;
   padding-top: 15px; }
   .feeds-wrapper .feed {
-    border: solid 1px black;
     flex: 1;
     padding: 15px;
     height: 250px; }
@@ -47,7 +46,6 @@ header {
     margin-bottom: 0px; }
 
 footer {
-  border: solid 1px black;
   text-align: center;
   padding: 20px; }
 
@@ -89,7 +87,11 @@ footer {
   width: 10%; }
 
 body {
-  background-color: #D9B49A; }
+  background-color: #D9B49A;
+  color: #475051; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif; }
 
 header {
   background-color: #750017; }
@@ -102,14 +104,17 @@ footer {
   margin-right: 20px; }
 
 .feed {
+  background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 20px; }
 
 .tabs-menu {
   border-bottom: 1px solid black; }
 
 .tabs {
-  background-color: #D9B49A;
-  border: none; }
+  background-color: #8E0326;
+  border: none;
+  color: white;
+  padding: 10px 20px; }
 
 
 /*# sourceMappingURL=main.css.map */

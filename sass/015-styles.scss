@@ -1,9 +1,16 @@
 $primaryColor: #D9B49A;
 $headerColor: #750017;
 $footerColor: #475051;
+$white: #ffffff;
+$mainFont: 'Playfair Display', serif;
 
 body {
   background-color: $primaryColor;
+  color: #475051;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $mainFont;
 }
 
 header {
@@ -20,6 +27,7 @@ footer {
 }
 
 .feed {
+  background-color: rgba(255,255,255,.5);
   margin-bottom: 20px;
 }
 
@@ -28,6 +36,8 @@ footer {
 }
 
 .tabs {
-  background-color: $primaryColor;
+  background-color: #8E0326;
   border: none;
+  color: white;
+  padding: 10px 20px;
 }
