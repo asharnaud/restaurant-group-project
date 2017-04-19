@@ -76,5 +76,7 @@ footer {
   text-align: center; }
   .food-icon-wrapper i {
     margin: 10px; }
+  .food-icon-wrapper .inactive {
+    opacity: .4; }
 
 /*# sourceMappingURL=main.css.map */
