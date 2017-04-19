@@ -19,22 +19,54 @@ function dataToEl (data) {
   $('#news').html(data.post)
 }
 
-function responseFail () {
-  $('#news').html('Oh no! Sorry, looks like something went wrong on our end.')
+function responseFail (el) {
+  el.html('Oh no! Sorry, looks like something went wrong on our end.')
 }
 
-var url = 'https://json-data.herokuapp.com/restaurant/news/1'
-apiCall = $.get(url, dataToEl).done(dataToEl).fail(responseFail)
+responseFail($('#news'))
+
+var urlNews = 'https://json-data.herokuapp.com/restaurant/news/1'
+$.get(urlNews, dataToEl).done(dataToEl).fail(responseFail)
 
 // This retrieves the daily special api data and replaces the html of the today's special section with what is retrieved.
 function dataToSpecial (data) {
-  console.log(data)
+  // console.log(data)
   $('#dailySpecial').html(data.menu_item_id)
 }
 
-function responseFailSpecial () {
-  $('#dailySpecial').html('Oh no! Sorry, looks like something went wrong on our end.')
+responseFail($('#dailySpecial'))
+
+var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'
+$.get(urlDailySpecial, dataToSpecial).done(dataToSpecial).fail(responseFail)
+
+// This retrieves the menu api data
+var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
+$.get(urlMenu, renderMenu).done(dataToSpecial).fail(responseFail)
+
+function renderMenu (data) {
+  // console.log('appetizers', data.appetizers)
+  // console.log('entrees', data.entrees)
+  // console.log('sides', data.sides)
+  data.entrees.forEach(function (item) {
+    $('#menu').append(menuDataToHtml(item))
+  })
 }
 
-var specialURL = 'https://json-data.herokuapp.com/restaurant/special/1'
-speicalApiCall = $.get(specialURL, dataToSpecial).done(dataToSpecial).fail(responseFailSpecial)
+function menuDataToHtml (food) {
+  var element = ''
+  element += '<h3 class="food-title">' + food.item + '</h3>'
+  element += '<p class="food-description">' + food.description + '</p>'
+  element += '<span>' + food.price + '</span>'
+  element += '<div class="food-icon-wrapper">'
+  element += '<i title="vegan" class="icon ' + checkIconStatus(food.vegan) + '">' + '</i>'
+  element += '<i title="spicy" class="icon ' + checkIconStatus(food.spicy) + '">' + '</i>'
+  element += '<i title="allergies" class="icon ' + checkIconStatus(food.allergies) + '">' + '</i>'
+  element += '<i title="favorite" class="icon ' + checkIconStatus(food.favorite) + '">' + '</i>'
+  element += '</div>'
+  return element
+}
+
+function checkIconStatus (item) {
+  if (item === 1) return 'active'
+  return 'inactive'
+}
