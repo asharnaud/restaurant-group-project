@@ -64,7 +64,7 @@ function createMenuItems (name, obj) {
 // render html tags and css classes with the menu api content
 function menuDataToHtml (food) {
   var element = ''
-  element += '<div class="food-wrapper">'
+  element += '<div id="' + food.id + '" class="food-wrapper">'
   element += '<div class="food-title">'
   element += '<h4>' + food.item + '</h4>'
   element += '<span class="price"> $' + food.price + '</span>'
