@@ -1,0 +1,33 @@
+$primaryColor: #D9B49A;
+$headerColor: #750017;
+$footerColor: #475051;
+
+body {
+  background-color: $primaryColor;
+}
+
+header {
+  background-color: $headerColor;
+}
+
+footer {
+  background-color: $footerColor;
+}
+
+.todays-special {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.feed {
+  margin-bottom: 20px;
+}
+
+.tabs-menu {
+  border-bottom: 1px solid black;
+}
+
+.tabs {
+  background-color: $primaryColor;
+  border: none;
+}
