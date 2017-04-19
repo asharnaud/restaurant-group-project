@@ -52,6 +52,59 @@ footer {
 .hide {
   display: none; }
 
+.main-logo {
+  width: 50%;
+  margin: 0; }
+
+.social-media {
+  display: inline;
+  font-size: 25px;
+  margin-left: 90%;
+  position: absolute;
+  top: 2%;
+  width: 10%; }
+
+body {
+  background-color: #212121;
+  color: white; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Libre Baskerville", serif; }
+
+header {
+  background-color: #8E0326; }
+
+footer {
+  background-color: #475051; }
+
+.todays-special {
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.feed {
+  background-color: #8E0326;
+  margin-bottom: 20px; }
+
+.tabs-menu {
+  border-bottom: 1px solid black; }
+
+.tabs {
+  background-color: #8E0326;
+  border: 2px solid white;
+  color: white;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+  transition: all .5s; }
+  .tabs:hover {
+    background-color: white;
+    color: #8E0326;
+    border-color: #8E0326; }
+
+.tabcontent {
+  background-color: #eee;
+  color: #212121;
+  margin-bottom: 20px; }
+
 #menu {
   padding: 20px; }
   #menu h3 {
@@ -73,48 +126,5 @@ footer {
     margin: 10px; }
   .food-icon-wrapper .inactive {
     opacity: .4; }
-
-.main-logo {
-  width: 50%;
-  margin: 0; }
-
-.social-media {
-  display: inline;
-  font-size: 25px;
-  margin-left: 90%;
-  position: absolute;
-  top: 2%;
-  width: 10%; }
-
-body {
-  background-color: #D9B49A;
-  color: #475051; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", serif; }
-
-header {
-  background-color: #750017; }
-
-footer {
-  background-color: #475051; }
-
-.todays-special {
-  margin-left: 20px;
-  margin-right: 20px; }
-
-.feed {
-  background-color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 20px; }
-
-.tabs-menu {
-  border-bottom: 1px solid black; }
-
-.tabs {
-  background-color: #8E0326;
-  border: none;
-  color: white;
-  padding: 10px 20px; }
-
 
 /*# sourceMappingURL=main.css.map */
