@@ -58,10 +58,10 @@ function menuDataToHtml (food) {
   element += '<p class="food-description">' + food.description + '</p>'
   element += '<span>' + food.price + '</span>'
   element += '<div class="food-icon-wrapper">'
-  element += '<i title="vegan" class="icon ' + checkIconStatus(food.vegan) + '">' + '</i>'
-  element += '<i title="spicy" class="icon ' + checkIconStatus(food.spicy) + '">' + '</i>'
-  element += '<i title="allergies" class="icon ' + checkIconStatus(food.allergies) + '">' + '</i>'
-  element += '<i title="favorite" class="icon ' + checkIconStatus(food.favorite) + '">' + '</i>'
+  element += '<i title="vegan" class="fa fa-leaf ' + checkIconStatus(food.vegan) + '">' + '</i>'
+  element += '<i title="spicy" class="fa fa-thermometer-full ' + checkIconStatus(food.spicy) + '">' + '</i>'
+  element += '<i title="allergies" class="fa fa-ambulance ' + checkIconStatus(food.allergies) + '">' + '</i>'
+  element += '<i title="favorite" class="fa fa-star ' + checkIconStatus(food.favorite) + '">' + '</i>'
   element += '</div>'
   return element
 }
