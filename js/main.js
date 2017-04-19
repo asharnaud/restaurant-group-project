@@ -44,17 +44,23 @@ var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
 $.get(urlMenu, renderMenu).done(dataToSpecial).fail(responseFail)
 
 function renderMenu (data) {
-  // console.log('appetizers', data.appetizers)
-  // console.log('entrees', data.entrees)
-  // console.log('sides', data.sides)
+  $('#menu').append('<h3>Appetizers</h3>')
+  data.appetizers.forEach(function (item) {
+    $('#menu').append(menuDataToHtml(item))
+  })
+  $('#menu').append('<h3>Entrees</h3>')
   data.entrees.forEach(function (item) {
+    $('#menu').append(menuDataToHtml(item))
+  })
+  $('#menu').append('<h3>Sides</h3>')
+  data.sides.forEach(function (item) {
     $('#menu').append(menuDataToHtml(item))
   })
 }
 
 function menuDataToHtml (food) {
   var element = ''
-  element += '<h3 class="food-title">' + food.item + '</h3>'
+  element += '<h4 class="food-title">' + food.item + '</h4>'
   element += '<p class="food-description">' + food.description + '</p>'
   element += '<span>' + food.price + '</span>'
   element += '<div class="food-icon-wrapper">'
