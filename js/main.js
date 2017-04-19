@@ -30,15 +30,17 @@ $.get(urlNews).done(dataToNews).fail(responseFail)
 
 // This retrieves the daily special api data and replaces the html of the today's special section with what is retrieved.
 function dataToSpecial (data) {
-  // console.log(data)
-  $('#dailySpecial').html(data.menu_item_id)
+  var id = '#' + data.menu_item_id
+  var menuItem = $(id)
+  $('#dailySpecial').html(menuItem)
 }
 
 responseFail($('#dailySpecial'))
 
-var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'
-$.get(urlDailySpecial).done(dataToSpecial).fail(responseFail)
-
+function callDailySpecial () {
+  var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'
+  $.get(urlDailySpecial).done(dataToSpecial).fail(responseFail)
+}
 // This is the API call for the restaurant menu
 var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
 $.get(urlMenu).done(renderMenu).fail(responseFail)
@@ -59,6 +61,7 @@ function createMenuItems (name, obj) {
   obj.forEach(function (item) {
     $('#menu').append(menuDataToHtml(item))
   })
+  callDailySpecial()
 }
 
 // render html tags and css classes with the menu api content
