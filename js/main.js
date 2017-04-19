@@ -54,7 +54,7 @@ function renderMenu (data) {
 // first uses the name to render the title, then loops through each element
 // on the menu and calls the function that returns the html menu elements
 function createMenuItems (name, obj) {
-  var title = '<h3>' + firstLetterToUpper(name) + '</h3>'
+  var title = '<h3>' + firstLetterToUpper(name) + '</h3> <hr>'
   $('#menu').append(title)
   obj.forEach(function (item) {
     $('#menu').append(menuDataToHtml(item))
@@ -64,14 +64,18 @@ function createMenuItems (name, obj) {
 // render html tags and css classes with the menu api content
 function menuDataToHtml (food) {
   var element = ''
-  element += '<h4 class="food-title">' + food.item + '</h4>'
+  element += '<div class="food-wrapper">'
+  element += '<div class="food-title">'
+  element += '<h4>' + food.item + '</h4>'
+  element += '<span class="price"> $' + food.price + '</span>'
+  element += '</div>'
   element += '<p class="food-description">' + food.description + '</p>'
-  element += '<span> $' + food.price + '</span>'
   element += '<div class="food-icon-wrapper">'
   element += '<i title="vegan" class="fa fa-leaf ' + checkIconStatus(food.vegan) + '">' + '</i>'
   element += '<i title="spicy" class="fa fa-thermometer-full ' + checkIconStatus(food.spicy) + '">' + '</i>'
   element += '<i title="allergies" class="fa fa-ambulance ' + checkIconStatus(food.allergies) + '">' + '</i>'
   element += '<i title="favorite" class="fa fa-star ' + checkIconStatus(food.favorite) + '">' + '</i>'
+  element += '</div>'
   element += '</div>'
   return element
 }
