@@ -57,4 +57,26 @@ footer {
 .hide {
   display: none; }
 
+#menu {
+  padding: 20px; }
+  #menu h3 {
+    margin-bottom: 5px; }
+  #menu h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    display: inline-block; }
+  #menu .food-wrapper {
+    padding: 20px; }
+  #menu .price {
+    float: right; }
+
+.food-icon-wrapper {
+  border: solid 1px black;
+  display: inline-block;
+  text-align: center; }
+  .food-icon-wrapper i {
+    margin: 10px; }
+  .food-icon-wrapper .inactive {
+    opacity: .4; }
+
 /*# sourceMappingURL=main.css.map */
