@@ -91,3 +91,17 @@ function checkIconStatus (item) {
 function firstLetterToUpper (string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
+
+// toggle tabs
+$('.tabs-menu').click(toggleTabs)
+function toggleTabs (e) {
+  // checks if the element clicked has the class 'tabs'
+  if (e.target.classList.contains('tabs')) {
+    // takes the data att name from the btn and creates an id
+    var idName = '#' + e.target.dataset.btn
+    $('#menu, #story, #reservation').hide()
+    $(idName).show()
+  }
+}
+
+$('#menu, #reservation').hide()
