@@ -1,0 +1,58 @@
+$primaryColor: #212121;
+$headerColor: #8E0326;
+$footerColor: #475051;
+$white: #ffffff;
+$gray: #eee;
+$mainFont: 'Libre Baskerville', serif;
+
+body {
+  background-color: $primaryColor;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $mainFont;
+}
+
+header {
+  background-color: $headerColor;
+}
+
+footer {
+  background-color: $footerColor;
+}
+
+.todays-special {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.feed {
+  background-color: $headerColor;
+  margin-bottom: 20px;
+}
+
+.tabs-menu {
+  border-bottom: 1px solid black;
+}
+
+.tabs {
+  background-color: $headerColor;
+  border: 2px solid white;
+  color: white;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+  transition: all .5s;
+
+  &:hover {
+    background-color: white;
+    color: $headerColor;
+    border-color: $headerColor;
+  }
+}
+
+.tabcontent {
+  background-color: $gray;
+  color: $primaryColor;
+  margin-bottom: 20px;
+}

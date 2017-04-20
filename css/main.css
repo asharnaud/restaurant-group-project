@@ -2,23 +2,21 @@ body {
   background-color: lightgrey; }
 
 .main-wrapper {
-  border: solid 1px black;
   max-width: 960px;
   margin: 0 auto; }
 
 header {
-  border: solid 1px black;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  position: relative; }
 
 .header-img {
-  border: solid 1px black; }
+  width: 100%; }
 
 .feeds-wrapper {
-  border: solid 1px black;
   display: flex;
-  flex-flow: row; }
+  flex-flow: row;
+  padding-top: 15px; }
   .feeds-wrapper .feed {
-    border: solid 1px black;
     flex: 1;
     padding: 15px;
     height: 250px; }
@@ -36,11 +34,9 @@ header {
   flex-flow: row; }
 
 .tabs-wrapper {
-  border: solid 1px black;
   flex: 3; }
 
 .photo-side-column {
-  border: solid 1px black;
   flex: 1;
   padding: 10px; }
   .photo-side-column img {
@@ -50,12 +46,64 @@ header {
     margin-bottom: 0px; }
 
 footer {
-  border: solid 1px black;
   text-align: center;
   padding: 20px; }
 
 .hide {
   display: none; }
+
+.main-logo {
+  width: 50%;
+  margin: 0; }
+
+.social-media {
+  display: inline;
+  font-size: 25px;
+  margin-left: 90%;
+  position: absolute;
+  top: 2%;
+  width: 10%; }
+
+body {
+  background-color: #212121;
+  color: white; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Libre Baskerville", serif; }
+
+header {
+  background-color: #8E0326; }
+
+footer {
+  background-color: #475051; }
+
+.todays-special {
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.feed {
+  background-color: #8E0326;
+  margin-bottom: 20px; }
+
+.tabs-menu {
+  border-bottom: 1px solid black; }
+
+.tabs {
+  background-color: #8E0326;
+  border: 2px solid white;
+  color: white;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+  transition: all .5s; }
+  .tabs:hover {
+    background-color: white;
+    color: #8E0326;
+    border-color: #8E0326; }
+
+.tabcontent {
+  background-color: #eee;
+  color: #212121;
+  margin-bottom: 20px; }
 
 #menu {
   padding: 20px; }

@@ -2,26 +2,24 @@ body {
   background-color: lightgrey;
 }
 .main-wrapper {
-  border: solid 1px black;
   max-width: 960px;
   margin: 0 auto;
 }
 header {
-  border: solid 1px black;
   padding: 10px 20px;
+  position: relative;
 }
 
 .header-img {
-  border: solid 1px black;
+  width: 100%;
 }
 
 .feeds-wrapper {
-  border: solid 1px black;
   display: flex;
   flex-flow: row;
+  padding-top: 15px;
 
   .feed {
-    border: solid 1px black;
     flex: 1;
     padding: 15px;
     height: 250px;
@@ -44,12 +42,10 @@ header {
 }
 
 .tabs-wrapper {
-  border: solid 1px black;
   flex: 3;
 }
 
 .photo-side-column {
-  border: solid 1px black;
   flex: 1;
   padding: 10px;
 
@@ -63,11 +59,24 @@ header {
 }
 
 footer {
-  border: solid 1px black;
   text-align: center;
   padding: 20px;
 }
 
 .hide {
   display: none;
+}
+
+.main-logo {
+  width: 50%;
+  margin: 0;
+}
+
+.social-media {
+  display: inline;
+  font-size: 25px;
+  margin-left: 90%;
+  position: absolute;
+  top: 2%;
+  width:10%;
 }
