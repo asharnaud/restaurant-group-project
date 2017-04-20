@@ -4,14 +4,27 @@ $footerColor: #475051;
 $white: #ffffff;
 $gray: #eee;
 $mainFont: 'Libre Baskerville', serif;
+$secondaryFont: 'Quattrocento', serif;
 
 body {
   background-color: $primaryColor;
-  color: white;
+  color: $primaryColor;
 }
 
-h1, h2, h3, h4, h5, h6 {
+p {
+  font-family: $secondaryFont;
+}
+
+.header-img {
+  margin-top: 20px;
+}
+
+h1, h2, h3, h4, h5 {
   font-family: $mainFont;
+}
+
+h3, i.active {
+  color: $headerColor;
 }
 
 header {
@@ -20,6 +33,7 @@ header {
 
 footer {
   background-color: $footerColor;
+  color: $gray;
 }
 
 .todays-special {
@@ -28,12 +42,32 @@ footer {
 }
 
 .feed {
-  background-color: $headerColor;
+  background-color: $gray;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
-.tabs-menu {
-  border-bottom: 1px solid black;
+.feed p {
+  font-size: 14px;
+}
+
+.feed h3 {
+  margin-bottom: 5px;
+}
+
+.todays-special {
+  .food-icon-wrapper {
+    display: none;
+  }
+}
+
+#map {
+  width: 90%;
+  height: 70px;
+}
+
+.our-location p {
+  text-align: center;
 }
 
 .tabs {
@@ -43,7 +77,7 @@ footer {
   margin-bottom: 5px;
   padding: 10px 20px;
   transition: all .5s;
-
+  box-shadow: 0 0 5px $headerColor;
   &:hover {
     background-color: white;
     color: $headerColor;
@@ -51,8 +85,22 @@ footer {
   }
 }
 
-.tabcontent {
+.tabs-wrapper {
   background-color: $gray;
   color: $primaryColor;
   margin-bottom: 20px;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.photo-side-column {
+  background-color: $headerColor;
+  margin-bottom: 20px;
+  h3 {
+    color: white;
+  }
+}
+
+.social-media {
+  color: $gray;
 }
