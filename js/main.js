@@ -105,3 +105,8 @@ function toggleTabs (e) {
 }
 
 $('#menu, #reservation').hide()
+
+// This is the function that retrieves Flickr photos
+function jsonFlickrApi (data) {
+  console.log(data)
+}
