@@ -91,3 +91,17 @@ function checkIconStatus (item) {
 function firstLetterToUpper (string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
+
+// toggle tabs
+$('.tabs-menu').click(toggleTabs)
+// TODO: checl if you can do this with html data-
+function toggleTabs (e) {
+  if (e.target.id === 'btnReservation') {
+    $('#menu').hide()
+    $('#story').hide()
+    $('#reservation').show()
+  }
+}
+
+$('#menu').hide()
+$('#reservation').hide()
