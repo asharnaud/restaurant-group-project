@@ -94,14 +94,14 @@ function firstLetterToUpper (string) {
 
 // toggle tabs
 $('.tabs-menu').click(toggleTabs)
-// TODO: checl if you can do this with html data-
 function toggleTabs (e) {
-  if (e.target.id === 'btnReservation') {
-    $('#menu').hide()
-    $('#story').hide()
-    $('#reservation').show()
+  // checks if the element clicked has the class 'tabs'
+  if (e.target.classList.contains('tabs')) {
+    // takes the data att name from the btn and creates an id
+    var idName = '#' + e.target.dataset.btn
+    $('#menu, #story, #reservation').hide()
+    $(idName).show()
   }
 }
 
-$('#menu').hide()
-$('#reservation').hide()
+$('#menu, #reservation').hide()
