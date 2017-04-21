@@ -83,6 +83,13 @@ h3, i.active {
 header {
   background-color: #8E0326; }
 
+.header-img {
+  width: 960px;
+  height: 400px;
+  overflow: hidden; }
+  .header-img img {
+    width: 100%; }
+
 footer {
   background-color: #475051;
   color: #eee; }
