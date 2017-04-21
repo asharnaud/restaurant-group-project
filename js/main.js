@@ -117,9 +117,10 @@ $.get(apiurl).done(jsonFlickrApi).fail(function (e) {
 function jsonFlickrApi (data) {
   console.log(data)
   renderPicture(data, 32, '.header-img img')
-  renderPicture(data, 96, '.side-photo-1')
-  renderPicture(data, 97, '.side-photo-2')
-  renderPicture(data, 98, '.side-photo-3')
+  renderPicture(data, 13, '#daily-special-img')
+  renderPicture(data, 5, '.side-photo-1')
+  renderPicture(data, 12, '.side-photo-2')
+  renderPicture(data, 14, '.side-photo-3')
 }
 
 function renderPicture (data, num, imgEl) {
