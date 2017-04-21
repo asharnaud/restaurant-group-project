@@ -15,10 +15,6 @@ p {
   font-family: $secondaryFont;
 }
 
-.header-img {
-  margin-top: 20px;
-}
-
 h1, h2, h3, h4, h5 {
   font-family: $mainFont;
 }
@@ -32,12 +28,18 @@ header {
 }
 
 .header-img {
-  width: 960px;
   height: 400px;
+  margin-top: 20px;
   overflow: hidden;
+  width: 960px;
   img {
     width: 100%;
   }
+}
+
+#dailySpecialImg {
+  width: 100%;
+  height: 120px;
 }
 
 footer {
@@ -47,7 +49,10 @@ footer {
 
 .todays-special {
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 50px;
+  p {
+    margin: 0;
+  }
 }
 
 .feed {
@@ -105,8 +110,14 @@ footer {
 .photo-side-column {
   background-color: $headerColor;
   margin-bottom: 20px;
+  overflow: hidden;
+  padding-bottom: 111px;
   h3 {
     color: white;
+  }
+  img {
+    width: 100%;
+    padding-bottom: 10px;
   }
 }
 

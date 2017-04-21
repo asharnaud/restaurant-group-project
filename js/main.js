@@ -101,7 +101,7 @@ function toggleTabs (e) {
     var idName = '#' + e.target.dataset.btn
     $('#menu, #story, #reservation, #reviews').hide()
     $(idName).show()
-    getTabContentWidth($(idName))
+    getTabContentHeight($(idName))
   }
 }
 
@@ -117,9 +117,10 @@ $.get(apiurl).done(jsonFlickrApi).fail(function (e) {
 function jsonFlickrApi (data) {
   console.log(data)
   renderPicture(data, 32, '.header-img img')
-  renderPicture(data, 13, '#daily-special-img')
+  renderPicture(data, 13, '#dailySpecialImg')
+  renderPicture(data, 44, '#storyImg')
   renderPicture(data, 5, '.side-photo-1')
-  renderPicture(data, 12, '.side-photo-2')
+  renderPicture(data, 30, '.side-photo-2')
   renderPicture(data, 14, '.side-photo-3')
 }
 
@@ -133,7 +134,8 @@ function renderPicture (data, num, imgEl) {
   $(imgEl).attr('src', photoUrl)
 }
 
-function getTabContentWidth (element) {
+function getTabContentHeight (element) {
   var height = element.height()
   console.log(height)
+  $('.photo-side-column').height(height)
 }
