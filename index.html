@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://use.fontawesome.com/a2e30851ba.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Quattrocento" rel="stylesheet">
+    <title>The Black Pot</title>
+  </head>
+  <body>
+    <header>
+      <div class="main-logo">
+        <img src="img/logo.svg" alt="The Black Pot">
+      </div>
+      <div class="social-media">
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+      </div>
+    </header>
+    <div class="main-wrapper">
+      <div class="header-img">
+        <img src="" alt="food from the Black Pot">
+
+      </div>
+      <div class="feeds-wrapper">
+        <div class="feed latest-news">
+          <h3>Latest News</h3>
+          <hr>
+          <p id="title"></p>
+          <p id="news">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis finibus, orci vitae viverra convallis, sapien nunc hendrerit eros, nec tincidunt purus elit blandit tortor. Morbi at dolor vel sem vestibulum sodales pulvinar non lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vulputate mauris finibus, semper urna vitae, semper odio. Curabitur sed erat cursus, vehicula est vitae, convallis nulla. Proin a pretium ipsum. Ut non vestibulum tellus, eget mattis nibh. Morbi in sem lacus.</p><p class="read-more">Read More ></p>
+        </div>
+        <div class="feed todays-special">
+          <h3>Today's Special</h3>
+          <hr>
+          <img id="dailySpecialImg" src="" alt="placeholder">
+          <p id="dailySpecial"></p>
+
+        </div>
+        <div class="feed our-location">
+          <h3>Our Location</h3>
+          <hr>
+          <div id="map" class="feed map-div"></div>
+          <p>901 Bourbon St New Orleans, LA 70116</p>
+          <p>504-555-1234 &#8226; Map &#8226; Directions</p>
+        </div>
+      </div>
+      <div class="tabs-and-photos-container">
+        <div class="tabs-wrapper">
+          <div class="tabs-menu">
+            <button data-btn="story" class="tabs">Our Story</button>
+            <button data-btn="menu" class="tabs">Menu</button>
+            <button data-btn="reservation" class="tabs">Reservations</button>
+            <button data-btn="reviews" class="tabs">Reviews</button>
+          </div>
+          <div id="story" class="tabcontent">
+            <h4>Story</h4>
+            <p>Located steps off of Bourbon Street in the heart of the French Quarter, The Black Pot offers classic Creole Cuisine and exemplary service. When one thinks of the quintessential Cajun/Creole restaurant in the French Quarter, The Black Pot immediately comes to mind. This legendary New Orleans restaurant serving upscale dishes features open kitchens, a beautiful courtyard, and private event rooms with a balcony overlooking one of the French Quarter’s most traveled streets. </p>
+            <img id='storyImg' src="" alt="">
+            <p>Our Chefs choose only the freshest and finest locally-sourced ingredients from local fishermen and farmers to assemble the world-renowned menu locals and visitors alike have come to love. So, whether you’re in the mood for Blackened Red Fish, the cajun flavors of carefully prepared crawfish etouffee, or a bowl of the best gumbo to ever pass your lips, look no further than The Black Pot.</p>
+          </div>
+
+          <div id="menu" class="tabcontent">
+            <h2>Our Dinner Selection</h2>
+          </div>
+
+          <div id="reservation" class="tabcontent">
+            <h4>Reservations</h4>
+            <form action="">
+              Full Name:<br>
+              <input type="text" name="fullname"><br>
+              Number of Guests:<br>
+              <input type="text" name="number"><br>
+              Date:<br>
+              <input type="date" name="date"><br>
+              Special Notes:<br>
+              <textarea name="notes" rows="5" cols="60"></textarea><br>
+              Seating Preference <br>
+              <select>
+                <option value="indoor">Indoor</option>
+                <option value="outdoor">Outdoor</option>
+                <option value="vip">VIP</option>
+              </select><br><br>
+              <button class="reserve-button">Reserve Table</button>
+            </form>
+          </div>
+          <div id="reviews" class="tabcontent">
+
+            <div id="disqus_thread"></div>
+              <script>
+
+              /**
+              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+              /*
+              var disqus_config = function () {
+              this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              };
+              */
+              var disqus_url = 'https://index.com';
+
+              (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://the-black-pot.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+              })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+          </div>
+        </div>
+        <div class="photo-side-column">
+          <h3>Food Photos...</h3>
+          <img class="side-photo-1" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+          <img class="side-photo-2" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+          <img class="side-photo-3" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+
+          <img class="side-photo-1" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+          <img class="side-photo-2" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+          <img class="side-photo-3" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+
+          <img class="side-photo-1" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+          <img class="side-photo-2" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+          <img class="side-photo-3" src="http://lorempixel.com/output/food-q-c-300-200-1.jpg" alt="placeholder">
+
+        </div>
+      </div>
+    </div>
+    <footer>
+      <i class="fa fa-copyright" aria-hidden="true"> 2017 The Black Pot</i>
+    </footer>
+    <script src="js/main.min.js"></script>
+    <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVxQERF4WSusdYUnswuFuJ7kM59HEkGb4&callback=initMap"></script>
+    <script id="dsq-count-scr" src="//the-black-pot.disqus.com/count.js" async></script>
+  </body>
+</html>
