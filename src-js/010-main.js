@@ -99,9 +99,12 @@ function toggleTabs (e) {
   if (e.target.classList.contains('tabs')) {
     // takes the data att name from the btn and creates an id
     var idName = '#' + e.target.dataset.btn
-    $('#menu, #story, #reservation').hide()
+    $('#menu, #story, #reservation, #reviews').hide()
     $(idName).show()
+    getTabContentWidth($(idName))
   }
 }
 
-$('#menu, #reservation').hide()
+$('#menu, #reservation, #reviews').hide()
+
+

@@ -6,8 +6,7 @@
     "uglifyjs": "~2.4.10"
   },
   "scripts": {
-    "build-js": "cat src-js/*.js > public/js/main.js",
-    "watch-css": "sass --watch sass/000-main.scss:public/css/main.css",
-    "watch": "npm run watch-js & npm run watch-css"
+    "build": "cat src-js/*.js > public/js/main.js | uglifyjs public/js/main.js --compress --mangles -o public/js/main.min.js ",
+    "watch": "sass --watch sass/000-main.scss:public/css/main.css"
   }
 }
