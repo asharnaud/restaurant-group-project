@@ -45,6 +45,7 @@ function callDailySpecial () {
   var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'
   $.get(urlDailySpecial).done(dataToSpecial).fail(responseFail)
 }
+
 // This is the API call for the restaurant menu
 var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
 $.get(urlMenu).done(renderMenu).fail(responseFail)
@@ -57,6 +58,7 @@ function renderMenu (data) {
     }
   }
 }
+
 // first uses the name to render the title, then loops through each element
 // on the menu and calls the function that returns the html menu elements
 function createMenuItems (name, obj) {
@@ -70,20 +72,19 @@ function createMenuItems (name, obj) {
 
 // render html tags and css classes with the menu api content
 function menuDataToHtml (food) {
-  var element = ''
-  element += '<div id="' + food.id + '" class="food-wrapper">'
-  element += '<div class="food-title">'
-  element += '<h4>' + food.item + '</h4>'
-  element += '<span class="price"> $' + food.price + '</span>'
-  element += '</div>'
-  element += '<p class="food-description">' + food.description + '</p>'
-  element += '<div class="food-icon-wrapper">'
-  element += '<i title="vegan" class="fa fa-leaf ' + checkIconStatus(food.vegan) + '">' + '</i>'
-  element += '<i title="spicy" class="fa fa-thermometer-full ' + checkIconStatus(food.spicy) + '">' + '</i>'
-  element += '<i title="allergies" class="fa fa-ambulance ' + checkIconStatus(food.allergies) + '">' + '</i>'
-  element += '<i title="favorite" class="fa fa-star ' + checkIconStatus(food.favorite) + '">' + '</i>'
-  element += '</div>'
-  element += '</div>'
+  var element = '<div id="' + food.id + '" class="food-wrapper">' +
+    '<div class="food-title">' +
+    '<h4>' + food.item + '</h4>' +
+    '<span class="price"> $' + food.price + '</span>' +
+    '</div>' +
+    '<p class="food-description">' + food.description + '</p>' +
+    '<div class="food-icon-wrapper">' +
+    '<i title="vegan" class="fa fa-leaf ' + checkIconStatus(food.vegan) + '">' + '</i>' +
+    '<i title="spicy" class="fa fa-thermometer-full ' + checkIconStatus(food.spicy) + '">' + '</i>' +
+    '<i title="allergies" class="fa fa-ambulance ' + checkIconStatus(food.allergies) + '">' + '</i>' +
+    '<i title="favorite" class="fa fa-star ' + checkIconStatus(food.favorite) + '">' + '</i>' +
+    '</div>' +
+    '</div>'
   return element
 }
 
@@ -97,22 +98,25 @@ function firstLetterToUpper (string) {
 }
 
 // toggle tabs
-$('.tabs-menu').click(toggleTabs)
+$('.tabs-menu .tabs').click(toggleTabs)
+
 function toggleTabs (e) {
-  // checks if the element clicked has the class 'tabs'
-  if (e.target.classList.contains('tabs')) {
-    // takes the data att name from the btn and creates an id
-    var idName = '#' + e.target.dataset.btn
-    $('#menu, #story, #reservation, #reviews').hide()
-    $(idName).show()
-    getTabContentHeight($(idName))
-  }
+  // takes the data att name from the btn and creates an id
+  var idName = '#' + e.target.dataset.btn
+  $('#menu, #story, #reservation, #reviews').hide()
+  $(idName).show()
+  getTabContentHeight($(idName))
 }
 
+// hides the tabs content
 $('#menu, #reservation, #reviews').hide()
 
+function getTabContentHeight (element) {
+  var height = element.height()
+  console.log(height)
+  $('.photo-side-column').height(height)
+}
 // This is the function that retrieves Flickr photos
-
 var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
 $.get(apiurl).done(jsonFlickrApi).fail(function (e) {
   console.log('bad', e)
@@ -136,10 +140,4 @@ function renderPicture (data, num, imgEl) {
   // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
   var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
   $(imgEl).attr('src', photoUrl)
-}
-
-function getTabContentHeight (element) {
-  var height = element.height()
-  console.log(height)
-  $('.photo-side-column').height(height)
 }
