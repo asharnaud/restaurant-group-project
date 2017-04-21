@@ -1,0 +1,12 @@
+{
+  "name": "the-black-pot",
+  "version": "1.2.3",
+  "private": true,
+  "dependencies": {
+    "uglifyjs": "~2.4.10"
+  },
+  "scripts": {
+    "build": "cat src-js/*.js > public/js/main.js | uglifyjs public/js/main.js --compress --mangles -o public/js/main.min.js ",
+    "watch": "sass --watch sass/000-main.scss:public/css/main.css"
+  }
+}
