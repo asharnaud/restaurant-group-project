@@ -47,15 +47,7 @@ header {
 
 .photo-side-column {
   flex: 1;
-  padding: 10px;
-
-  img {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  img:last-child {
-    margin-bottom: 0px;
-  }
+  padding: 20px;
 }
 
 footer {
