@@ -31,6 +31,15 @@ header {
   background-color: $headerColor;
 }
 
+.header-img {
+  width: 960px;
+  height: 400px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
+
 footer {
   background-color: $footerColor;
   color: $gray;
