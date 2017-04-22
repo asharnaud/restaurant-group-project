@@ -413,9 +413,6 @@ header {
   padding: 10px 20px;
   position: relative; }
 
-.header-img {
-  width: 100%; }
-
 .feeds-wrapper {
   display: flex;
   flex-flow: row;
@@ -478,12 +475,14 @@ header {
   background-color: #8E0326; }
 
 .header-img {
-  height: 50vw;
-  margin-top: 20px;
+  height: 500px;
+  margin: 20px 10px 0 10px;
   overflow: hidden;
-  width: 100%; }
+  position: relative; }
   .header-img img {
-    margin: 0 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%; }
 
 #dailySpecialImg {
@@ -598,6 +597,9 @@ footer {
   .main-logo img {
     width: 40%; }
 
+  .header-img {
+    height: 50vw; }
+
   .latest-news, .todays-special {
     flex: 2; }
 
@@ -610,6 +612,9 @@ footer {
 @media only screen and (max-width: 479px) {
   .main-logo img {
     width: 60%; }
+
+  .header-img {
+    height: 60vw; }
 
   .social-media {
     font-size: 1em; }
