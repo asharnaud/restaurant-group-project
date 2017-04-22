@@ -1,10 +1,46 @@
 
 /* For tablets: */
 @media only screen and (min-width: 480px) and (max-width: 768px) {
+  .main-logo img{
+    width: 40%;
+  }
 
+  .latest-news, .todays-special {
+    flex: 2;
+  }
+
+  .photo-side-column {
+    display: none;
+  }
+
+  .tabs-wrapper {
+    margin-right: 0;
+  }
 }
 
 /* For mobile phones: */
-@media only screen and (min-width: 320px) and (max-width: 479px) {
+@media only screen and (max-width: 479px) {
+  .main-logo img {
+    width: 60%;
+  }
+
+  .social-media {
+    font-size: 1em;
+  }
+
+  .feeds-wrapper {
+    flex-direction: column;
+    .feed {
+      margin: 10px;
+    }
+  }
+
+  .photo-side-column {
+    display: none;
+  }
+
+  .tabs-wrapper {
+    margin-right: 0;
+  }
 
 }

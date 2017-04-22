@@ -17,18 +17,18 @@ header {
 .feeds-wrapper {
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
   padding-top: 15px;
 
   .feed {
     flex: 1;
     padding: 15px;
     height: 250px;
+    min-width: 250px;
   }
 }
 
 .latest-news {
-  flex: 1;
-  min-width: 0;
   p {
     white-space: nowrap;
     overflow: hidden;
@@ -59,16 +59,15 @@ footer {
   display: none;
 }
 
-.main-logo {
-  width: 50%;
+.main-logo img{
+  width: 30%;
   margin: 0;
 }
 
 .social-media {
-  display: inline;
-  font-size: 25px;
+  display: inline-block;
+  font-size: 1.5em;
   position: absolute;
-  top: 30px;
+  top: 30%;
   right: 10px;
-  width:10%;
 }
