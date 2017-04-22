@@ -116,6 +116,8 @@ function getTabContentHeight (element) {
   console.log(height)
   $('.photo-side-column').height(height)
 }
+
+$(window).resize(getTabContentHeight($('#story')))
 // This is the function that retrieves Flickr photos
 var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
 $.get(apiurl).done(jsonFlickrApi).fail(function (e) {

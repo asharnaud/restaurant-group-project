@@ -107,8 +107,12 @@ function toggleTabs (e) {
 // hides the tabs content
 $('#menu, #reservation, #reviews').hide()
 
+// This gets the height of the story tab content and makes the photo side column the same height.
 function getTabContentHeight (element) {
   var height = element.height()
   console.log(height)
   $('.photo-side-column').height(height)
 }
+
+// Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
+$(window).resize(getTabContentHeight($('#story')))
