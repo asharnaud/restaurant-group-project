@@ -41,6 +41,17 @@ header {
   flex: 3;
 }
 
+.tabs-menu {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.tabs {
+  flex: 1;
+}
+
+
 .photo-side-column {
   flex: 1;
   padding: 20px;

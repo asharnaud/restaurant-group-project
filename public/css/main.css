@@ -436,6 +436,14 @@ header {
 .tabs-wrapper {
   flex: 3; }
 
+.tabs-menu {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap; }
+
+.tabs {
+  flex: 1; }
+
 .photo-side-column {
   flex: 1;
   padding: 20px; }
@@ -526,7 +534,7 @@ footer {
   text-align: center; }
 
 .tabs-and-photos-container {
-  margin: 5px 10px 0 10px; }
+  margin: 10px 10px 0 10px; }
 
 .tabs {
   background-color: #8E0326;
