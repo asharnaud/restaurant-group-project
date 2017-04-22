@@ -496,8 +496,7 @@ footer {
   color: #eee; }
 
 .todays-special {
-  margin-left: 20px;
-  margin-right: 50px; }
+  margin: 0 20px; }
   .todays-special p {
     margin: 0; }
 
@@ -577,5 +576,8 @@ footer {
     margin: 10px; }
   .food-icon-wrapper .inactive {
     opacity: .4; }
+
+/* For tablets: */
+/* For mobile phones: */
 
 /*# sourceMappingURL=main.css.map */

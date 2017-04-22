@@ -140,4 +140,6 @@ function renderPicture (data, num, imgEl) {
   // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
   var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
   $(imgEl).attr('src', photoUrl)
+  // crops sidebar img after story img is loaded
+  getTabContentHeight($('#story'))
 }
