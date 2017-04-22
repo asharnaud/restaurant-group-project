@@ -28,12 +28,14 @@ header {
 }
 
 .header-img {
-  height: 50vw;
-  margin-top: 20px;
+  height: 500px;
+  margin: 20px 10px 0 10px;
   overflow: hidden;
-  width: 100%;
+  position: relative;
   img {
-    margin: 0 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
   }
 }

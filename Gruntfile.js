@@ -7,6 +7,20 @@ module.exports = function (grunt) {
         dest: 'public/js/main.js'
       }
     },
+    uglify: {
+      my_target: {
+        files: {
+          'public/js/main.min.js': ['public/js/main.js']
+        }
+      }
+    },
+    sass: {
+      dist: {
+        files: {
+          'public/css/main.css': 'sass/000-main.scss'
+        }
+      }
+    },
     watch: {
       js: {
         files: ['src-js/*.js'],
@@ -16,24 +30,14 @@ module.exports = function (grunt) {
         files: ['public/js/main.js'],
         tasks: ['uglify']
       },
-      sass: {
+      watchSass: {
         files: ['sass/*.scss'],
-        tasks: ['sass-css']
-      }
-    },
-    uglify: {
-      my_target: {
-        files: {
-          'public/js/main.min.js': ['public/js/main.js']
-        }
+        tasks: ['sass']
       }
     }
   })
 
-  grunt.registerTask('sass-css', function () {
-    'sass sass/000-main.scss:public/css/main.css'
-  })
-
+  grunt.loadNpmTasks('grunt-contrib-sass')
   grunt.loadNpmTasks('grunt-contrib-concat')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-uglify')
