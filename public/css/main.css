@@ -549,6 +549,10 @@ footer {
     color: #8E0326;
     border: solid 1px #8E0326; }
 
+.shop-item {
+  width: 44%;
+  margin: 20px; }
+
 .tabs-wrapper {
   background-color: #eee;
   color: #212121;

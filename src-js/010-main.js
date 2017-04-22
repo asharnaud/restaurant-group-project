@@ -101,13 +101,13 @@ $('.tabs-menu .tabs').click(toggleTabs)
 function toggleTabs (e) {
   // takes the data att name from the btn and creates an id
   var idName = '#' + e.target.dataset.btn
-  $('#menu, #story, #reservation, #reviews').hide()
+  $('#menu, #story, #reservation, #reviews, #shop').hide()
   $(idName).show()
   getTabContentHeight($(idName))
 }
 
 // hides the tabs content
-$('#menu, #reservation, #reviews').hide()
+$('#menu, #reservation, #reviews, #shop').hide()
 
 // This gets the height of the story tab content and makes the photo side column the same height.
 function getTabContentHeight (element) {
@@ -118,3 +118,51 @@ function getTabContentHeight (element) {
 
 // Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
 $(window).resize(getTabContentHeight($('#story')))
+
+// // This starts the Moltin API
+
+// var moltin = new Moltin({publicId: 'oQsE7eB3CJIckHOq2yE9vWtd4ZOKHWobvAKcJK6OW5'})
+// moltin.Authenticate(function () {
+//   // Make your calls here
+//   var products = moltin.Product.List()
+//   moltin.Cart.Insert(products[0].id, 1, null,
+//     function (item) {
+//       console.log(item)
+//     })
+//   var cart = moltin.Cart.Contents()
+//   moltin.Cart.Complete({
+//     gateway: 'dummy',
+//     customer: {
+//       first_name: 'Jon',
+//       last_name: 'Doe',
+//       email: 'jon.doe@gmail.com'
+//     },
+//     bill_to: {
+//       first_name: 'Jon',
+//       last_name: 'Doe',
+//       address_1: '123 Sunny Street',
+//       address_2: 'Sunnycreek',
+//       city: 'Sunnyvale',
+//       county: 'California',
+//       country: 'US',
+//       postcode: 'CA94040',
+//       phone: '6507123124'
+//     },
+//     ship_to: 'bill_to',
+//     shipping: 'free_shipping'
+//   },
+// function (order) {
+//   console.log(order)
+// })
+//   moltin.Checkout.Payment('purchase', order.id, {
+//     data: {
+//       number: '4242424242424242',
+//       expiry_month: '02',
+//       expiry_year: '2017',
+//       cvv: '123'
+//     }
+//   },
+// function (payment) {
+//   console.log(payment)
+// })
+// })
