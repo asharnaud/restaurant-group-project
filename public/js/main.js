@@ -120,52 +120,12 @@ function getTabContentHeight (element) {
 $(window).resize(getTabContentHeight($('#story')))
 
 // // This starts the Moltin API
-
-// var moltin = new Moltin({publicId: 'oQsE7eB3CJIckHOq2yE9vWtd4ZOKHWobvAKcJK6OW5'})
-// moltin.Authenticate(function () {
-//   // Make your calls here
-//   var products = moltin.Product.List()
-//   moltin.Cart.Insert(products[0].id, 1, null,
-//     function (item) {
-//       console.log(item)
-//     })
-//   var cart = moltin.Cart.Contents()
-//   moltin.Cart.Complete({
-//     gateway: 'dummy',
-//     customer: {
-//       first_name: 'Jon',
-//       last_name: 'Doe',
-//       email: 'jon.doe@gmail.com'
-//     },
-//     bill_to: {
-//       first_name: 'Jon',
-//       last_name: 'Doe',
-//       address_1: '123 Sunny Street',
-//       address_2: 'Sunnycreek',
-//       city: 'Sunnyvale',
-//       county: 'California',
-//       country: 'US',
-//       postcode: 'CA94040',
-//       phone: '6507123124'
-//     },
-//     ship_to: 'bill_to',
-//     shipping: 'free_shipping'
-//   },
-// function (order) {
-//   console.log(order)
-// })
-//   moltin.Checkout.Payment('purchase', order.id, {
-//     data: {
-//       number: '4242424242424242',
-//       expiry_month: '02',
-//       expiry_year: '2017',
-//       cvv: '123'
-//     }
-//   },
-// function (payment) {
-//   console.log(payment)
-// })
-// })
+var moltin = new Moltin({publicId: 'oQsE7eB3CJIckHOq2yE9vWtd4ZOKHWobvAKcJK6OW5'})
+moltin.Authenticate(function () {
+  moltin.Category.List(null, function (categories) {
+    console.log(categories)
+  })
+})
 
 // This is the function that retrieves Flickr photos
 var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
