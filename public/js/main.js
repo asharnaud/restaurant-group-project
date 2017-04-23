@@ -119,13 +119,23 @@ function getTabContentHeight (element) {
 // Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
 $(window).resize(getTabContentHeight($('#story')))
 
-// // This starts the Moltin API
-var moltin = new Moltin({publicId: 'oQsE7eB3CJIckHOq2yE9vWtd4ZOKHWobvAKcJK6OW5'})
-moltin.Authenticate(function () {
-  moltin.Category.List(null, function (categories) {
-    console.log(categories)
-  })
-})
+// Stripe API starts here
+$('.shop').click(addAmountOfItem)
+
+function addAmountOfItem (e) {
+  if (e.className === '.buy-btn' && '.shirt') {
+    console.log($('.shirt').val())
+  }
+  if (e.className === '.buy-btn' && '.mug') {
+    console.log($('.mug').val())
+  }
+  if (e.className === '.buy-btn' && '.coozie') {
+    console.log($('.coozie').val())
+  }
+  if (e.className === '.buy-btn' && '.hat') {
+    console.log($('.hat').val())
+  }
+}
 
 // This is the function that retrieves Flickr photos
 var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
