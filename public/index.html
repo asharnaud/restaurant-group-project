@@ -43,7 +43,6 @@
           <h3>Our Location</h3>
           <hr>
           <div id="map" class="feed map-div"></div>
-          <br>
           <p>901 Bourbon St New Orleans, LA 70116</p>
           <p>504-555-1234 &#8226; Map &#8226; Directions</p>
         </div>
@@ -55,6 +54,7 @@
             <button data-btn="menu" class="tabs">Menu</button>
             <button data-btn="reservation" class="tabs">Reservations</button>
             <button data-btn="reviews" class="tabs">Reviews</button>
+            <button data-btn="shop" class="tabs">Shop</button>
           </div>
           <div id="story" class="tabcontent">
             <h4>Story</h4>
@@ -113,6 +113,24 @@
               <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
           </div>
+          <div id="shop" class="tabcontent">
+            <img class='shop-item' src="https://s-media-cache-ak0.pinimg.com/originals/14/28/79/1428796920091d69d7c253088ae30ddb.jpg" alt="crawfish t-shirt"><button class="buy-btn shirt" id="shirt" value="2000">$20 Buy Now!</button>
+            <img class='shop-item' src="http://i3.cpcache.com/product/307552497/crawfish_mug.jpg?side=Back&color=White&height=460&width=460&qv=90" alt="crawfish mug"><button class="buy-btn mug" value="800">$8 Buy Now!</button>
+            <img class='shop-item' src="http://www.mardigrasoutlet.com/media/catalog/product/cache/4/image/1000x1000/9df78eab33525d08d6e5fb8d27136e95/B/C/BCVR-CF-RED2.jpg" alt="crawfish coozie"><button class="buy-btn coozie" value="300">$3 Buy Now!</button>
+            <img class='shop-item' src="http://i3.cpcache.com/product/924884672/crawfish_hat.jpg?color=BlackWhite&height=460&width=460&qv=90" alt="crawfish hat"><button class="buy-btn hat" value="1500">$15 Buy Now!</button>
+            <!-- This is the Strip API -->
+            <form action="/your-server-side-code" method="POST">
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_test_igEGejB8LZkecSShRtklm4IC"
+              data-amount="2000"
+              data-name="The Black Pot"
+              data-description="your items"
+              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+              data-locale="auto">
+            </script>
+            </form>
+          </div>
         </div>
         <div class="photo-side-column">
           <h3>Food Photos...</h3>
@@ -135,6 +153,8 @@
     <footer>
       <i class="fa fa-copyright" aria-hidden="true"> 2017 The Black Pot</i>
     </footer>
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
+    <script src="https://js.moltin.com/v1"></script>
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/main.min.js"></script>
     <script async defer

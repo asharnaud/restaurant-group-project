@@ -101,13 +101,13 @@ $('.tabs-menu .tabs').click(toggleTabs)
 function toggleTabs (e) {
   // takes the data att name from the btn and creates an id
   var idName = '#' + e.target.dataset.btn
-  $('#menu, #story, #reservation, #reviews').hide()
+  $('#menu, #story, #reservation, #reviews, #shop').hide()
   $(idName).show()
   getTabContentHeight($(idName))
 }
 
 // hides the tabs content
-$('#menu, #reservation, #reviews').hide()
+$('#menu, #reservation, #reviews, #shop').hide()
 
 // This gets the height of the story tab content and makes the photo side column the same height.
 function getTabContentHeight (element) {
@@ -118,6 +118,24 @@ function getTabContentHeight (element) {
 
 // Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
 $(window).resize(getTabContentHeight($('#story')))
+
+// Stripe functions starts here
+$('.shop').click(addAmountOfItem)
+
+function addAmountOfItem (e) {
+  if (e.className === '.buy-btn' && '.shirt') {
+    console.log($('.shirt').val())
+  }
+  if (e.className === '.buy-btn' && '.mug') {
+    console.log($('.mug').val())
+  }
+  if (e.className === '.buy-btn' && '.coozie') {
+    console.log($('.coozie').val())
+  }
+  if (e.className === '.buy-btn' && '.hat') {
+    console.log($('.hat').val())
+  }
+}
 
 // This is the function that retrieves Flickr photos
 var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
