@@ -99,16 +99,34 @@ footer {
 }
 .tabs {
   background-color: $headerColor;
-  border: solid 1px $headerColor;
+  border: solid 2px $headerColor;
   color: white;
   margin-bottom: 5px;
   padding: 10px 20px;
-  transition: all .5s;
+  transition: all .3s;
   margin: 2px;
   &:hover {
+    background-color: rgb(225, 135, 160);
+    color: $headerColor;
+    border-color: $headerColor;
+  }
+  &.active {
     background-color: white;
     color: $headerColor;
-    border: solid 1px $headerColor;
+  }
+}
+
+.tabcontent {
+  form {
+    margin-top: 20px;
+
+    input, textarea {
+      margin-bottom: 20px;
+    }
+
+    button {
+      float: right;
+    }
   }
 }
 
