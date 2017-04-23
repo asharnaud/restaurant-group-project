@@ -119,7 +119,7 @@ function getTabContentHeight (element) {
 // Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
 $(window).resize(getTabContentHeight($('#story')))
 
-// Stripe API starts here
+// Stripe functions starts here
 $('.shop').click(addAmountOfItem)
 
 function addAmountOfItem (e) {
