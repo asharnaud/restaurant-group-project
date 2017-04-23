@@ -1,5 +1,5 @@
 /* For tablets: */
-@media only screen and (min-width: 480px) and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .main-logo img{
     width: 40%;
   }
@@ -7,9 +7,11 @@
     height: 50vw;
   }
   .latest-news, .todays-special {
-    flex: 2;
   }
 
+  .our-location {
+
+  }
   .photo-side-column {
     display: none;
   }
@@ -20,7 +22,7 @@
 }
 
 /* For mobile phones: */
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 480px) {
   .main-logo img {
     width: 60%;
   }
@@ -36,14 +38,6 @@
     .feed {
       margin: 10px;
     }
-  }
-
-  .photo-side-column {
-    display: none;
-  }
-
-  .tabs-wrapper {
-    margin-right: 0;
   }
 
 }

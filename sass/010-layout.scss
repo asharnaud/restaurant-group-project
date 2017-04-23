@@ -19,8 +19,8 @@ header {
   .feed {
     flex: 1;
     padding: 15px;
-    height: 250px;
     min-width: 250px;
+    height: 300px;
   }
 }
 
@@ -40,6 +40,17 @@ header {
 .tabs-wrapper {
   flex: 3;
 }
+
+.tabs-menu {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.tabs {
+  flex: 1;
+}
+
 
 .photo-side-column {
   flex: 1;
