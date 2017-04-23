@@ -99,16 +99,16 @@ footer {
 }
 .tabs {
   background-color: $headerColor;
-  border: 2px solid white;
+  border: solid 1px $headerColor;
   color: white;
   margin-bottom: 5px;
   padding: 10px 20px;
   transition: all .5s;
-  box-shadow: 0 0 5px $headerColor;
+  margin: 2px;
   &:hover {
     background-color: white;
     color: $headerColor;
-    border-color: $headerColor;
+    border: solid 1px $headerColor;
   }
 }
 

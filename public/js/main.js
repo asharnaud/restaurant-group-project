@@ -71,15 +71,17 @@ function menuDataToHtml (food) {
   var element = '<div id="' + food.id + '" class="food-wrapper">' +
     '<div class="food-title">' +
     '<h4>' + food.item + '</h4>' +
-    '<span class="price"> $' + food.price + '</span>' +
-    '</div>' +
-    '<p class="food-description">' + food.description + '</p>' +
+    '<span class="bar-menu">&#8226;</span>' +
+    '<span class="price"> $' + food.price + ' </span>' +
+    '<span class="bar-menu">&#8226;</span>' +
     '<div class="food-icon-wrapper">' +
     '<i title="vegan" class="fa fa-leaf ' + checkIconStatus(food.vegan) + '">' + '</i>' +
     '<i title="spicy" class="fa fa-thermometer-full ' + checkIconStatus(food.spicy) + '">' + '</i>' +
     '<i title="allergies" class="fa fa-ambulance ' + checkIconStatus(food.allergies) + '">' + '</i>' +
     '<i title="favorite" class="fa fa-star ' + checkIconStatus(food.favorite) + '">' + '</i>' +
     '</div>' +
+    '</div>' +
+    '<p class="food-description">' + food.description + '</p>' +
     '</div>'
   return element
 }
