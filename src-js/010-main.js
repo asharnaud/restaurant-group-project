@@ -126,7 +126,7 @@ $(window).resize(getTabContentHeight($('#story')))
 $('.shop').click(addAmountOfItem)
 
 function addAmountOfItem (e) {
-  if (e.className === '.buy-btn' && '.shirt') {
+  if (e.className === ('.buy-btn') && ('.shirt')) {
     console.log($('.shirt').val())
   }
   if (e.className === '.buy-btn' && '.mug') {
