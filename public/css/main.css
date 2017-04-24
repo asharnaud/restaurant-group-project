@@ -538,16 +538,26 @@ footer {
 
 .tabs {
   background-color: #8E0326;
-  border: solid 1px #8E0326;
+  border: solid 2px #8E0326;
   color: white;
   margin-bottom: 5px;
   padding: 10px 20px;
-  transition: all .5s;
+  transition: all .3s;
   margin: 2px; }
   .tabs:hover {
-    background-color: white;
+    background-color: #e187a0;
     color: #8E0326;
-    border: solid 1px #8E0326; }
+    border-color: #8E0326; }
+  .tabs.active {
+    background-color: white;
+    color: #8E0326; }
+
+.tabcontent form {
+  margin-top: 20px; }
+  .tabcontent form input, .tabcontent form textarea {
+    margin-bottom: 20px; }
+  .tabcontent form button {
+    float: right; }
 
 .shop-item {
   width: 44%;
