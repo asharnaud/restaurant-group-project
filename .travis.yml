@@ -3,4 +3,5 @@ node_js:
   - "7"
   before_script:
   - npm install standard --save-dev
-script: npm test
+script:
+  - npm test
