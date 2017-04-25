@@ -5,8 +5,10 @@ $.get(apiurl).done(jsonFlickrApi).fail(function (e) {
 })
 
 function jsonFlickrApi (data) {
-  console.log(data)
-  renderPicture(data, 32, '.header-img img')
+  renderPicture(data, 32, '#img1')
+  renderPicture(data, 31, '#img2')
+  renderPicture(data, 29, '#img3')
+
   renderPicture(data, 13, '#dailySpecialImg')
   renderPicture(data, 44, '#storyImg')
   renderPicture(data, 5, '.side-photo-1')
