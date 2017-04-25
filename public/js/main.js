@@ -129,8 +129,10 @@ $.get(apiurl).done(jsonFlickrApi).fail(function (e) {
 })
 
 function jsonFlickrApi (data) {
-  console.log(data)
-  renderPicture(data, 32, '.header-img img')
+  renderPicture(data, 32, '#img1')
+  renderPicture(data, 31, '#img2')
+  renderPicture(data, 29, '#img3')
+
   renderPicture(data, 13, '#dailySpecialImg')
   renderPicture(data, 44, '#storyImg')
   renderPicture(data, 5, '.side-photo-1')
@@ -149,3 +151,23 @@ function renderPicture (data, num, imgEl) {
   // crops sidebar img after story img is loaded
   getTabContentHeight($('#story'))
 }
+
+var current = 0
+var slides = $('#slides img')
+
+function animateSlide () {
+  $(slides[current]).fadeIn(1000, function () {
+    $(this).delay(4000).fadeOut(1000, checkCurrent)
+  })
+}
+
+function checkCurrent () {
+  current++
+  if (current === slides.length) {
+    current = 0
+  }
+  animateSlide()
+}
+
+slides.hide()
+animateSlide()
