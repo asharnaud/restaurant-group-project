@@ -24,14 +24,6 @@ header {
   }
 }
 
-.latest-news {
-  p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
 .tabs-and-photos-container {
   display: flex;
   flex-flow: row;
