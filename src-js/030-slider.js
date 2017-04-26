@@ -1,3 +1,5 @@
+var $ = window.jQuery
+
 var current = 0
 var slides = $('#slides img')
 

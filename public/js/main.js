@@ -1,17 +1,19 @@
+/* global google */
 var $ = window.jQuery
-
 // The function to get the location for the Google map.
 function initMap () {
   var newOrleans = {lat: 30.0688, lng: -89.930881}
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
     center: newOrleans
-    })
+  })
   var marker = new google.maps.Marker({
     position: newOrleans,
     map: map
   })
+  console.log(marker)
 }
+console.log(initMap)
 
 // This retrieves the news api data and replaces the html of the news section with what is retrieved.
 function dataToNews (data) {
@@ -142,6 +144,8 @@ function resizeActive () {
 setInterval(resizeActive, 200)
 
 // This is the function that retrieves Flickr photos
+var $ = window.jQuery
+
 var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
 $.get(apiurl).done(jsonFlickrApi).fail(function (e) {
   console.log('bad', e)
@@ -168,6 +172,8 @@ function renderPicture (data, num, imgEl) {
   var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
   $(imgEl).attr('src', photoUrl)
 }
+
+var $ = window.jQuery
 
 var current = 0
 var slides = $('#slides img')
