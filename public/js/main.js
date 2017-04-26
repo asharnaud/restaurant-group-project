@@ -1,4 +1,5 @@
 var $ = window.jQuery
+var google = window.google
 
 // The function to get the location for the Google map.
 function initMap () {
@@ -6,12 +7,15 @@ function initMap () {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
     center: newOrleans
-    })
+  })
   var marker = new google.maps.Marker({
     position: newOrleans,
     map: map
   })
+  console.log(marker)
 }
+
+console.log(initMap)
 
 // This retrieves the news api data and replaces the html of the news section with what is retrieved.
 function dataToNews (data) {
