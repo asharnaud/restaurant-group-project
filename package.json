@@ -4,12 +4,16 @@
   "private": true,
   "dependencies": {
     "grunt": "^1.0.1",
-    "uglifyjs": "~2.4.10"
+    "uglifyjs": "~2.4.10",
+    "standard": "*"
   },
   "devDependencies": {
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.3.0",
     "grunt-contrib-watch": "^1.0.0"
+  },
+  "scripts": {
+    "test": "standard && node public/js/main.js"
   }
 }

@@ -13,7 +13,6 @@ function initMap () {
   })
 }
 
-
 // This retrieves the news api data and replaces the html of the news section with what is retrieved.
 function dataToNews (data) {
   $('#title').html(data.title + '  ' + data.date_published)
