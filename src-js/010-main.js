@@ -17,10 +17,11 @@ function initMap () {
 function dataToNews (data) {
   $('#title').html(data.title + '  ' + data.date_published)
   $('#news').html(data.post)
+  $('#news').html(shortenText('#news', 450))
 }
 
 function responseFail (el) {
-  el.html('Oh no! Sorry, looks like something went wrong on our end.')
+  console.log('Oh no! Sorry...')
 }
 
 responseFail($('#news'))
@@ -121,3 +122,14 @@ function getTabContentHeight (element) {
 
 // Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
 $(window).resize(getTabContentHeight($('#story')))
+
+// This shortens the text of the news post and adds ...read more
+function shortenText (selector, maxLength) {
+  var element = $(selector)
+  var newsPost = element.html()
+  if (newsPost.length > maxLength) {
+    // the substr extracts the part of the paragraph you don't want by specifing the max length.
+    newsPost = newsPost.substr(0, maxLength) + '...' + '<a>read more</a>'
+  }
+  return newsPost
+}

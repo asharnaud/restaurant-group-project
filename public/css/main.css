@@ -424,11 +424,6 @@ header {
     min-width: 250px;
     height: 300px; }
 
-.latest-news p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
-
 .tabs-and-photos-container {
   display: flex;
   flex-flow: row; }
@@ -598,6 +593,13 @@ footer {
 
 .social-media {
   color: #eee; }
+
+#news a {
+  color: #8E0326; }
+
+#title {
+  font-size: 16px;
+  font-weight: bold; }
 
 #menu h3 {
   margin-bottom: 5px; }
