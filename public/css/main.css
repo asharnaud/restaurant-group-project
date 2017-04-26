@@ -548,11 +548,18 @@ footer {
     color: #8E0326; }
 
 .tabcontent form {
-  margin-top: 20px; }
-  .tabcontent form input, .tabcontent form textarea {
-    margin-bottom: 20px; }
-  .tabcontent form button {
-    float: right; }
+  margin-top: 20px;
+  margin-right: 10px; }
+  .tabcontent form textarea {
+    width: 100%; }
+  .tabcontent form input {
+    margin-bottom: 20px;
+    width: 100%; }
+
+.btn-wrapper {
+  text-align: right; }
+  .btn-wrapper button {
+    display: inline-block; }
 
 .shop-item {
   width: 44%;
