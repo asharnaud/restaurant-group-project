@@ -14,8 +14,8 @@ function initMap () {
   console.log(marker)
 }
 
-// var dumbFunc = initMap()
-// console.log(dumbFunc)
+var dumbFunc = initMap()
+console.log(dumbFunc)
 // This retrieves the news api data and replaces the html of the news section with what is retrieved.
 function dataToNews (data) {
   $('#title').html(data.title + '  ' + data.date_published)
