@@ -145,6 +145,7 @@ setInterval(resizeActive, 200)
 =======
 (function () {
   var $ = window.jQuery
+  var google = window.google
 
   // The function to get the location for the Google map.
   function initMap () {
@@ -159,8 +160,7 @@ setInterval(resizeActive, 200)
     })
     console.log(marker)
   }
-  window.THE_BLACK_POT.initGoogleMaps = initMap
-  var google = window.THE_BLACK_POT.google
+  console.log(initMap)
   // This retrieves the news api data and replaces the html of the news section with what is retrieved.
   function dataToNews (data) {
     $('#title').html(data.title + '  ' + data.date_published)
