@@ -1,5 +1,5 @@
 # Restaurant Group Project
-<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a> <br><br>[![Build Status](https://travis-ci.org/asharnaud/restaurant-group-project.svg?branch=issue-25-travissetup)](https://travis-ci.org/asharnaud/restaurant-group-project.svg?branch=issue-25-travissetup)
+<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a> <br><br>[![Build Status](https://travis-ci.org/asharnaud/restaurant-group-project)](https://travis-ci.org/asharnaud/restaurant-group-project)
 
 > This is our Iron Yard midterm group project. It is a cajun restaurant website mockup with the following deliverables:
 
