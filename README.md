@@ -1,5 +1,5 @@
 # Restaurant Group Project
-<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a> <br><br>[![Build Status](https://travis-ci.org/asharnaud/restaurant-group-project.svg?branch=issue-25-travissetup)](https://travis-ci.org/asharnaud/restaurant-group-project.svg?branch=issue-25-travissetup)
+<img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a> <br><br>[![Build Status](https://travis-ci.org/asharnaud/restaurant-group-project.png)](https://travis-ci.org/)
 
 > This is our Iron Yard midterm group project. It is a cajun restaurant website mockup with the following deliverables:
 
@@ -30,6 +30,16 @@ Built with:
 * [Custom Restaurant API](https://json-data.herokuapp.com/restaurant)
 * [Flickr's Photo API](https://www.flickr.com/services/api/)
 * [Google Maps Embed API](https://developers.google.com/maps/documentation/embed/)
+
+## Development Setup
+
+```sh
+# install node_modules
+npm install
+
+# to watch the js and sass files
+grunt
+```
 
 ## Credits
 
