@@ -1,6 +1,5 @@
+/* global google */
 var $ = window.jQuery
-var google = window.google
-
 // The function to get the location for the Google map.
 function initMap () {
   var newOrleans = {lat: 30.0688, lng: -89.930881}
@@ -14,7 +13,6 @@ function initMap () {
   })
   console.log(marker)
 }
-
 console.log(initMap)
 
 // This retrieves the news api data and replaces the html of the news section with what is retrieved.
@@ -111,21 +109,18 @@ function toggleTabs (e) {
   var idName = '#' + e.target.dataset.btn
   $('#menu, #story, #reservation, #reviews, #shop').hide()
   $(idName).show()
-  getTabContentHeight($(idName))
+  setSidebarHeight($(idName))
 }
 
 // hides the tabs content
 $('#menu, #reservation, #reviews, #shop').hide()
 
 // This gets the height of the story tab content and makes the photo side column the same height.
-function getTabContentHeight (element) {
+function setSidebarHeight (element) {
   var height = element.height()
   console.log(height)
   $('.photo-side-column').height(height)
 }
-
-// Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
-$(window).resize(getTabContentHeight($('#story')))
 
 // This shortens the text of the news post and adds ...read more
 function shortenText (selector, maxLength) {
@@ -138,7 +133,19 @@ function shortenText (selector, maxLength) {
   return newsPost
 }
 
+// checks active tab content evey 200 ms and resize sidebar
+function resizeActive () {
+  var activeTab = $('.tabs-menu .active')[0]
+  var contentTab = activeTab.dataset.btn
+  var contentId = '#' + contentTab
+  setSidebarHeight($(contentId))
+}
+
+setInterval(resizeActive, 200)
+
 // This is the function that retrieves Flickr photos
+var $ = window.jQuery
+
 var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
 $.get(apiurl).done(jsonFlickrApi).fail(function (e) {
   console.log('bad', e)
@@ -164,9 +171,9 @@ function renderPicture (data, num, imgEl) {
   // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
   var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
   $(imgEl).attr('src', photoUrl)
-  // crops sidebar img after story img is loaded
-  getTabContentHeight($('#story'))
 }
+
+var $ = window.jQuery
 
 var current = 0
 var slides = $('#slides img')

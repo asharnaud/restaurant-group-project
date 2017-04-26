@@ -1,17 +1,19 @@
+/* global google */
 var $ = window.jQuery
-
 // The function to get the location for the Google map.
 function initMap () {
   var newOrleans = {lat: 30.0688, lng: -89.930881}
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
     center: newOrleans
-    })
+  })
   var marker = new google.maps.Marker({
     position: newOrleans,
     map: map
   })
+  console.log(marker)
 }
+console.log(initMap)
 
 // This retrieves the news api data and replaces the html of the news section with what is retrieved.
 function dataToNews (data) {
@@ -107,21 +109,18 @@ function toggleTabs (e) {
   var idName = '#' + e.target.dataset.btn
   $('#menu, #story, #reservation, #reviews, #shop').hide()
   $(idName).show()
-  getTabContentHeight($(idName))
+  setSidebarHeight($(idName))
 }
 
 // hides the tabs content
 $('#menu, #reservation, #reviews, #shop').hide()
 
 // This gets the height of the story tab content and makes the photo side column the same height.
-function getTabContentHeight (element) {
+function setSidebarHeight (element) {
   var height = element.height()
   console.log(height)
   $('.photo-side-column').height(height)
 }
-
-// Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
-$(window).resize(getTabContentHeight($('#story')))
 
 // This shortens the text of the news post and adds ...read more
 function shortenText (selector, maxLength) {
@@ -133,3 +132,13 @@ function shortenText (selector, maxLength) {
   }
   return newsPost
 }
+
+// checks active tab content evey 200 ms and resize sidebar
+function resizeActive () {
+  var activeTab = $('.tabs-menu .active')[0]
+  var contentTab = activeTab.dataset.btn
+  var contentId = '#' + contentTab
+  setSidebarHeight($(contentId))
+}
+
+setInterval(resizeActive, 200)
