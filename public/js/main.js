@@ -1,154 +1,99 @@
-/* global google */
-var $ = window.jQuery
-// The function to get the location for the Google map.
-function initMap () {
-  var newOrleans = {lat: 30.0688, lng: -89.930881}
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 8,
-    center: newOrleans
-  })
-  var marker = new google.maps.Marker({
-    position: newOrleans,
-    map: map
-  })
-  console.log(marker)
-}
-console.log(initMap)
-
-// This retrieves the news api data and replaces the html of the news section with what is retrieved.
-function dataToNews (data) {
-  $('#title').html(data.title + '  ' + data.date_published)
-  $('#news').html(data.post)
-  $('#news').html(shortenText('#news', 450))
-}
-
-function responseFail (el) {
-  console.log('Oh no! Sorry...')
-}
-
-responseFail($('#news'))
-
-var urlNews = 'https://json-data.herokuapp.com/restaurant/news/1'
-$.get(urlNews).done(dataToNews).fail(responseFail)
-
-// This retrieves the daily special api data and replaces the html of the today's special section with what is retrieved.
-function dataToSpecial (data) {
-  var id = '#' + data.menu_item_id
-  var menuItem = $(id)
-  $('#dailySpecial').html(menuItem)
-}
-
-responseFail($('#dailySpecial'))
-
-function callDailySpecial () {
-  var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'
-  $.get(urlDailySpecial).done(dataToSpecial).fail(responseFail)
-}
-
-// This is the API call for the restaurant menu
-var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
-$.get(urlMenu).done(renderMenu).fail(responseFail)
-
-// loops through the object and gets name and properties
-function renderMenu (data) {
-  for (var item in data) {
-    if (data.hasOwnProperty(item)) {
-      createMenuItems(item, data[item])
-    }
-  }
-}
-
-// first uses the name to render the title, then loops through each element
-// on the menu and calls the function that returns the html menu elements
-function createMenuItems (name, obj) {
-  var title = '<h3>' + firstLetterToUpper(name) + '</h3> <hr>'
-  $('#menu').append(title)
-  obj.forEach(function (item) {
-    $('#menu').append(menuDataToHtml(item))
-  })
-  callDailySpecial()
-}
-
-// render html tags and css classes with the menu api content
-function menuDataToHtml (food) {
-  var element = '<div id="' + food.id + '" class="food-wrapper">' +
-    '<div class="food-title">' +
-    '<h4>' + food.item + '</h4>' +
-    '<span class="bar-menu">&#8226;</span>' +
-    '<span class="price"> $' + food.price + ' </span>' +
-    '<span class="bar-menu">&#8226;</span>' +
-    '<div class="food-icon-wrapper">' +
-    '<i title="vegan" class="fa fa-leaf ' + checkIconStatus(food.vegan) + '">' + '</i>' +
-    '<i title="spicy" class="fa fa-thermometer-full ' + checkIconStatus(food.spicy) + '">' + '</i>' +
-    '<i title="allergies" class="fa fa-ambulance ' + checkIconStatus(food.allergies) + '">' + '</i>' +
-    '<i title="favorite" class="fa fa-star ' + checkIconStatus(food.favorite) + '">' + '</i>' +
-    '</div>' +
-    '</div>' +
-    '<p class="food-description">' + food.description + '</p>' +
-    '</div>'
-  return element
-}
-
-function checkIconStatus (item) {
-  if (item === 1) return 'active'
-  return 'inactive'
-}
-
-function firstLetterToUpper (string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
-
-// toggle tabs
-$('.tabs-menu .tabs').click(toggleTabs)
-
-function toggleTabs (e) {
-  // toggles class 'active' in btn tabs
-  $('.tabs-menu .tabs').removeClass('active')
-  $(this).addClass('active')
-  // takes the data att name from the btn and creates an id
-  var idName = '#' + e.target.dataset.btn
-  $('#menu, #story, #reservation, #reviews, #shop').hide()
-  $(idName).show()
-  setSidebarHeight($(idName))
-}
-
-// hides the tabs content
-$('#menu, #reservation, #reviews, #shop').hide()
-
-// This gets the height of the story tab content and makes the photo side column the same height.
-function setSidebarHeight (element) {
-  var height = element.height()
-  console.log(height)
-  $('.photo-side-column').height(height)
-}
-
-// This shortens the text of the news post and adds ...read more
-function shortenText (selector, maxLength) {
-  var element = $(selector)
-  var newsPost = element.html()
-  if (newsPost.length > maxLength) {
-    // the substr extracts the part of the paragraph you don't want by specifing the max length.
-    newsPost = newsPost.substr(0, maxLength) + '...' + '<a>read more</a>'
-  }
-  return newsPost
-}
-
-// checks active tab content evey 200 ms and resize sidebar
-function resizeActive () {
-  var activeTab = $('.tabs-menu .active')[0]
-  var contentTab = activeTab.dataset.btn
-  var contentId = '#' + contentTab
-  setSidebarHeight($(contentId))
-}
-
-setInterval(resizeActive, 200)
-=======
-(function () {
+/* global THE_BLACK_POT */
+;(function () {
   var $ = window.jQuery
-  var google = window.google
+  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
 
+  // This gets the height of the story tab content and makes the photo side column the same height.
+  function setSidebarHeight (element) {
+    var height = element.height()
+    console.log(height)
+    $('.photo-side-column').height(height)
+  }
+
+  // checks active tab content evey 200 ms and resize sidebar
+  function resizeSidebarHeight () {
+    var activeTab = $('.tabs-menu .active')[0]
+    var contentTab = activeTab.dataset.btn
+    var contentId = '#' + contentTab
+    setSidebarHeight($(contentId))
+  }
+
+  var RESIZE_POLLING_RATE_MS = 200
+  setInterval(resizeSidebarHeight, RESIZE_POLLING_RATE_MS)
+
+  THE_BLACK_POT.setSidebarHeight = setSidebarHeight
+})()
+
+/* global THE_BLACK_POT */
+;(function () {
+  var $ = window.jQuery
+  // This is the function that retrieves Flickr photos
+  var FLICKR_API_URL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
+  function fetchFlickrImages () {
+    console.info('Fetching Flickr images now.')
+    $.get(FLICKR_API_URL)
+      .done(fetchFlickrImagesSuccess)
+      .fail(fetchFlickrImagesError)
+  }
+
+  // TODO: write me for real
+  function fetchFlickrImagesError (e) {
+    console.log(e)
+  }
+
+  function fetchFlickrImagesSuccess (data) {
+    renderPicture(data, 32, '#img1')
+    renderPicture(data, 31, '#img2')
+    renderPicture(data, 29, '#img3')
+
+    renderPicture(data, 13, '#dailySpecialImg')
+    renderPicture(data, 44, '#storyImg')
+    renderPicture(data, 5, '.side-photo-1')
+    renderPicture(data, 30, '.side-photo-2')
+    renderPicture(data, 14, '.side-photo-3')
+  }
+
+  function renderPicture (data, num, imgEl) {
+    var photoId = data.photos.photo[num].id
+    var photoFarmId = data.photos.photo[num].farm
+    var photoServer = data.photos.photo[num].server
+    var photoSecret = data.photos.photo[num].secret
+    // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
+    var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
+    $(imgEl).attr('src', photoUrl)
+  }
+
+  THE_BLACK_POT.fetchFlickrImages = fetchFlickrImages
+})()
+
+;(function () {
+  var $ = window.jQuery
+  var currentImgIdx = 0
+  var slides = $('#slides img')
+
+  function animateSlide () {
+    $(slides[currentImgIdx]).fadeIn(1000, function () {
+      $(this).delay(4000).fadeOut(1000, checkCurrent)
+    })
+  }
+
+  function checkCurrent () {
+    currentImgIdx++
+    if (currentImgIdx === slides.length) {
+      currentImgIdx = 0
+    }
+    animateSlide()
+  }
+
+  slides.hide()
+  animateSlide()
+})()
+
+/* global google */
+;(function () {
   // The function to get the location for the Google map.
-  function initMap () {
+  var map
+  window.map = function initMap () {
     var newOrleans = {lat: 30.0688, lng: -89.930881}
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 8,
@@ -160,27 +105,52 @@ setInterval(resizeActive, 200)
     })
     console.log(marker)
   }
-  console.log(initMap)
+  console.log(map)
+})()
+
+/* global THE_BLACK_POT */
+;(function () {
+  var $ = window.jQuery
   // This retrieves the news api data and replaces the html of the news section with what is retrieved.
   function dataToNews (data) {
     $('#title').html(data.title + '  ' + data.date_published)
     $('#news').html(data.post)
+    $('#news').html(shortenText('#news', 450))
   }
 
   function responseFail (el) {
-    el.html('Oh no! Sorry, looks like something went wrong on our end.')
+    el.html('Sorry we are having some techinal difficulties.')
   }
 
   responseFail($('#news'))
+  function fetchNews () {
+    var urlNews = 'https://json-data.herokuapp.com/restaurant/news/1'
+    $.get(urlNews).done(dataToNews).fail(responseFail)
+  }
+  // This shortens the text of the news post and adds ...read more
+  function shortenText (selector, maxLength) {
+    var element = $(selector)
+    var newsPost = element.html()
+    if (newsPost.length > maxLength) {
+      // the substr extracts the part of the paragraph you don't want by specifing the max length.
+      newsPost = newsPost.substr(0, maxLength) + '...' + '<a>read more</a>'
+    }
+    return newsPost
+  }
+  THE_BLACK_POT.fetchNews = fetchNews
+})()
 
-  var urlNews = 'https://json-data.herokuapp.com/restaurant/news/1'
-  $.get(urlNews).done(dataToNews).fail(responseFail)
-
+/* global THE_BLACK_POT */
+;(function () {
+  var $ = window.jQuery
   // This retrieves the daily special api data and replaces the html of the today's special section with what is retrieved.
   function dataToSpecial (data) {
     var id = '#' + data.menu_item_id
     var menuItem = $(id)
     $('#dailySpecial').html(menuItem)
+  }
+  function responseFail (el) {
+    el.html('Sorry we are having some techinal difficulties.')
   }
 
   responseFail($('#dailySpecial'))
@@ -190,10 +160,21 @@ setInterval(resizeActive, 200)
     $.get(urlDailySpecial).done(dataToSpecial).fail(responseFail)
   }
 
-  // This is the API call for the restaurant menu
-  var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
-  $.get(urlMenu).done(renderMenu).fail(responseFail)
+  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
+  THE_BLACK_POT.callDailySpecial = callDailySpecial
+})()
 
+/* global THE_BLACK_POT */
+;(function () {
+  var $ = window.jQuery
+  // This is the API call for the restaurant menu
+  function fetchMenu () {
+    var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
+    $.get(urlMenu).done(renderMenu).fail(responseFail)
+  }
+  function responseFail (el) {
+    el.html('Sorry we are having some techinal difficulties.')
+  }
   // loops through the object and gets name and properties
   function renderMenu (data) {
     for (var item in data) {
@@ -211,7 +192,7 @@ setInterval(resizeActive, 200)
     obj.forEach(function (item) {
       $('#menu').append(menuDataToHtml(item))
     })
-    callDailySpecial()
+    THE_BLACK_POT.callDailySpecial()
   }
 
   // render html tags and css classes with the menu api content
@@ -242,7 +223,12 @@ setInterval(resizeActive, 200)
   function firstLetterToUpper (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
+  THE_BLACK_POT.fetchMenu = fetchMenu
+})()
 
+/* global THE_BLACK_POT */
+;(function () {
+  var $ = window.jQuery
   // toggle tabs
   $('.tabs-menu .tabs').click(toggleTabs)
 
@@ -254,90 +240,23 @@ setInterval(resizeActive, 200)
     var idName = '#' + e.target.dataset.btn
     $('#menu, #story, #reservation, #reviews, #shop').hide()
     $(idName).show()
-    getTabContentHeight($(idName))
+    THE_BLACK_POT.setSidebarHeight($(idName))
   }
 
   // hides the tabs content
   $('#menu, #reservation, #reviews, #shop').hide()
-
-  // This gets the height of the story tab content and makes the photo side column the same height.
-  function getTabContentHeight (element) {
-    var height = element.height()
-    console.log(height)
-    $('.photo-side-column').height(height)
-  }
-
-  // Anytime the window is resized this runs the getTabContentHeight function again to resize the side photo column.
-  $(window).resize(getTabContentHeight($('#story')))
 })()
 
-// This is the function that retrieves Flickr photos
-var $ = window.jQuery
+;(function () {
+  var $ = window.jQuery
+  var THE_BLACK_POT = window.THE_BLACK_POT
 
-var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
-$.get(apiurl).done(jsonFlickrApi).fail(function (e) {
-  console.log('bad', e)
-})
-/* global $ */
-(function () {
-  // This is the function that retrieves Flickr photos
-  var apiurl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
-  $.get(apiurl).done(jsonFlickrApi).fail(function (e) {
-    console.log('bad', e)
-  })
-
-  function jsonFlickrApi (data) {
-    renderPicture(data, 32, '#img1')
-    renderPicture(data, 31, '#img2')
-    renderPicture(data, 29, '#img3')
-
-    renderPicture(data, 13, '#dailySpecialImg')
-    renderPicture(data, 44, '#storyImg')
-    renderPicture(data, 5, '.side-photo-1')
-    renderPicture(data, 30, '.side-photo-2')
-    renderPicture(data, 14, '.side-photo-3')
+  function globalInit () {
+    THE_BLACK_POT.fetchFlickrImages()
+    THE_BLACK_POT.fetchNews()
+    THE_BLACK_POT.callDailySpecial()
+    THE_BLACK_POT.fetchMenu()
   }
 
-function renderPicture (data, num, imgEl) {
-  var photoId = data.photos.photo[num].id
-  var photoFarmId = data.photos.photo[num].farm
-  var photoServer = data.photos.photo[num].server
-  var photoSecret = data.photos.photo[num].secret
-  // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
-  var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
-  $(imgEl).attr('src', photoUrl)
-}
-  function renderPicture (data, num, imgEl) {
-    var photoId = data.photos.photo[num].id
-    var photoFarmId = data.photos.photo[num].farm
-    var photoServer = data.photos.photo[num].server
-    var photoSecret = data.photos.photo[num].secret
-    // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
-    var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
-    $(imgEl).attr('src', photoUrl)
-  }
-})()
-
-var $ = window.jQuery
-/* global $ */
-(function () {
-  var current = 0
-  var slides = $('#slides img')
-
-  function animateSlide () {
-    $(slides[current]).fadeIn(1000, function () {
-      $(this).delay(4000).fadeOut(1000, checkCurrent)
-    })
-  }
-
-  function checkCurrent () {
-    current++
-    if (current === slides.length) {
-      current = 0
-    }
-    animateSlide()
-  }
-
-  slides.hide()
-  animateSlide()
+  $(globalInit)
 })()
