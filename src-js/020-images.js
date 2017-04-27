@@ -9,10 +9,11 @@
       .done(fetchFlickrImagesSuccess)
       .fail(fetchFlickrImagesError)
   }
-
-  // TODO: write me for real
-  function fetchFlickrImagesError (e) {
-    console.log(e)
+  function fetchFlickrImagesError () {
+    var randomPhoto = 'http://lorempixel.com/600/400/food/'
+    $('.header-img img').attr('src', randomPhoto)
+    $('#dailySpecialImg').attr('src', randomPhoto)
+    $('.side-photo').attr('src', randomPhoto)
   }
 
   function fetchFlickrImagesSuccess (data) {
