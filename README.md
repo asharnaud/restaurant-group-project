@@ -37,7 +37,10 @@ Built with:
 # install node_modules
 npm install
 
-# to watch the js and sass files
+# install grunt
+npm install -g grunt-cli
+
+# watch all the js and sass files with grunt
 grunt
 ```
 
