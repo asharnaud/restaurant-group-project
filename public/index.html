@@ -146,7 +146,15 @@
       <i class="fa fa-copyright" aria-hidden="true"> 2017 The Black Pot</i>
     </footer>
     <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+    (function() {
+      var useDevScript = (document.location.search.indexOf('devscript') !== -1);
+      var src = useDevScript ? 'js/main.js' : 'js/main.min.js';
+      var scriptEl = document.createElement('script');
+      scriptEl.src = src;
+      document.body.appendChild(scriptEl);
+    })();
+    </script>
     <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVxQERF4WSusdYUnswuFuJ7kM59HEkGb4&callback=map"></script>
     <script id="dsq-count-scr" src="//the-black-pot.disqus.com/count.js" async></script>
