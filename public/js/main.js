@@ -92,8 +92,7 @@
 /* global google */
 ;(function () {
   // The function to get the location for the Google map.
-  var map
-  window.map = function initMap () {
+  function initMap () {
     var newOrleans = {lat: 30.0688, lng: -89.930881}
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 8,
@@ -105,7 +104,9 @@
     })
     console.log(marker)
   }
-  console.log(map)
+
+  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
+  window.THE_BLACK_POT.initGoogleMap = initMap
 })()
 
 /* global THE_BLACK_POT */
@@ -256,6 +257,7 @@
     THE_BLACK_POT.fetchNews()
     THE_BLACK_POT.callDailySpecial()
     THE_BLACK_POT.fetchMenu()
+    THE_BLACK_POT.initGoogleMap()
   }
 
   $(globalInit)
