@@ -6,7 +6,6 @@
   // This gets the height of the story tab content and makes the photo side column the same height.
   function setSidebarHeight (element) {
     var height = element.height()
-    console.log(height)
     $('.photo-side-column').height(height)
   }
 
