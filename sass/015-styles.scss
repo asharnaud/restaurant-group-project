@@ -41,7 +41,7 @@ header {
   }
 }
 
-#dailySpecialImg {
+.daily-special-photo {
   height: 40%;
   border-radius: 5px;
   margin-right: 10px;
@@ -152,7 +152,7 @@ footer {
   padding: 20px;
 }
 
-#story img {
+.story-photo {
   width: 100%;
 }
 
@@ -187,11 +187,19 @@ footer {
   color: $gray;
 }
 
-#news a {
+.news-section a {
   color: $headerColor;
 }
 
 #title {
   font-size: 16px;
   font-weight: bold;
+}
+
+.shop-tab a {
+  color:$headerColor;
+}
+
+.shop-tab button {
+  color:$headerColor;
 }

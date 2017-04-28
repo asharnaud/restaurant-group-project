@@ -488,7 +488,7 @@ header {
     left: 0;
     width: 100%; }
 
-#dailySpecialImg {
+.daily-special-photo {
   height: 40%;
   border-radius: 5px;
   margin-right: 10px;
@@ -572,7 +572,7 @@ footer {
   margin-right: 20px;
   padding: 20px; }
 
-#story img {
+.story-photo {
   width: 100%; }
 
 .photo-side-column {
@@ -601,12 +601,18 @@ footer {
 .social-media {
   color: #eee; }
 
-#news a {
+.news-section a {
   color: #8E0326; }
 
 #title {
   font-size: 16px;
   font-weight: bold; }
+
+.shop-tab a {
+  color: #8E0326; }
+
+.shop-tab button {
+  color: #8E0326; }
 
 #menu h3 {
   margin-bottom: 5px; }

@@ -113,10 +113,10 @@
 ;(function () {
   var $ = window.jQuery
   // This retrieves the news api data and replaces the html of the news section with what is retrieved.
-  function dataToNews (data) {
+  function showNewsHtml (data) {
     $('#title').html(data.title + '  ' + data.date_published)
     $('#news').html(data.post)
-    $('#news').html(shortenText('#news', 450))
+    $('#news').html(shortenNewsText('#news', 450))
   }
 
   function responseFail (el) {
@@ -126,10 +126,10 @@
   responseFail($('#news'))
   function fetchNews () {
     var urlNews = 'https://json-data.herokuapp.com/restaurant/news/1'
-    $.get(urlNews).done(dataToNews).fail(responseFail)
+    $.get(urlNews).done(showNewsHtml).fail(responseFail)
   }
   // This shortens the text of the news post and adds ...read more
-  function shortenText (selector, maxLength) {
+  function shortenNewsText (selector, maxLength) {
     var element = $(selector)
     var newsPost = element.html()
     if (newsPost.length > maxLength) {
@@ -145,7 +145,7 @@
 ;(function () {
   var $ = window.jQuery
   // This retrieves the daily special api data and replaces the html of the today's special section with what is retrieved.
-  function dataToSpecial (data) {
+  function showDailySpecial (data) {
     var id = '#' + data.menu_item_id
     var menuItem = $(id)
     $('#dailySpecial').html(menuItem)
@@ -156,13 +156,13 @@
 
   responseFail($('#dailySpecial'))
 
-  function callDailySpecial () {
+  function fetchDailySpecial () {
     var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'
-    $.get(urlDailySpecial).done(dataToSpecial).fail(responseFail)
+    $.get(urlDailySpecial).done(showDailySpecial).fail(responseFail)
   }
 
   window.THE_BLACK_POT = window.THE_BLACK_POT || {}
-  THE_BLACK_POT.callDailySpecial = callDailySpecial
+  THE_BLACK_POT.fetchDailySpecial = fetchDailySpecial
 })()
 
 /* global THE_BLACK_POT */
@@ -193,7 +193,7 @@
     obj.forEach(function (item) {
       $('#menu').append(menuDataToHtml(item))
     })
-    THE_BLACK_POT.callDailySpecial()
+    THE_BLACK_POT.fetchDailySpecial()
   }
 
   // render html tags and css classes with the menu api content
@@ -205,10 +205,10 @@
       '<span class="price"> $' + food.price + ' </span>' +
       '<span class="bar-menu">&#8226;</span>' +
       '<div class="food-icon-wrapper">' +
-      '<i title="vegan" class="fa fa-leaf ' + checkIconStatus(food.vegan) + '">' + '</i>' +
-      '<i title="spicy" class="fa fa-thermometer-full ' + checkIconStatus(food.spicy) + '">' + '</i>' +
-      '<i title="allergies" class="fa fa-ambulance ' + checkIconStatus(food.allergies) + '">' + '</i>' +
-      '<i title="favorite" class="fa fa-star ' + checkIconStatus(food.favorite) + '">' + '</i>' +
+      '<i title="vegan" class="fa fa-leaf ' + getClassActive(food.vegan) + '">' + '</i>' +
+      '<i title="spicy" class="fa fa-thermometer-full ' + getClassActive(food.spicy) + '">' + '</i>' +
+      '<i title="allergies" class="fa fa-ambulance ' + getClassActive(food.allergies) + '">' + '</i>' +
+      '<i title="favorite" class="fa fa-star ' + getClassActive(food.favorite) + '">' + '</i>' +
       '</div>' +
       '</div>' +
       '<p class="food-description">' + food.description + '</p>' +
@@ -216,7 +216,7 @@
     return element
   }
 
-  function checkIconStatus (item) {
+  function getClassActive (item) {
     if (item === 1) return 'active'
     return 'inactive'
   }
@@ -255,7 +255,7 @@
   function globalInit () {
     THE_BLACK_POT.fetchFlickrImages()
     THE_BLACK_POT.fetchNews()
-    THE_BLACK_POT.callDailySpecial()
+    THE_BLACK_POT.fetchDailySpecial()
     THE_BLACK_POT.fetchMenu()
     THE_BLACK_POT.initGoogleMap()
   }
