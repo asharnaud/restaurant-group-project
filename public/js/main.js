@@ -17,10 +17,7 @@
     setSidebarHeight($(contentId))
   }
 
-  var RESIZE_POLLING_RATE_MS = 200
-  setInterval(resizeSidebarHeight, RESIZE_POLLING_RATE_MS)
-
-  THE_BLACK_POT.setSidebarHeight = setSidebarHeight
+  THE_BLACK_POT.resizeSidebarHeight = resizeSidebarHeight
 })()
 
 /* global THE_BLACK_POT */
@@ -61,11 +58,19 @@
     // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
     var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
     $(imgEl).attr('src', photoUrl)
+    onLoadResizeSidebar(imgEl)
+  }
+
+  function onLoadResizeSidebar (img) {
+    $(img).on('load', function () {
+      THE_BLACK_POT.resizeSidebarHeight()
+    })
   }
 
   THE_BLACK_POT.fetchFlickrImages = fetchFlickrImages
 })()
 
+/* global THE_BLACK_POT */
 ;(function () {
   var $ = window.jQuery
   var currentImgIdx = 0
@@ -86,7 +91,8 @@
   }
 
   slides.hide()
-  animateSlide()
+
+  THE_BLACK_POT.animateSlide = animateSlide
 })()
 
 /* global google */
@@ -241,7 +247,7 @@
     var idName = '#' + e.target.dataset.btn
     $('#menu, #story, #reservation, #reviews, #shop').hide()
     $(idName).show()
-    THE_BLACK_POT.setSidebarHeight($(idName))
+    THE_BLACK_POT.resizeSidebarHeight()
   }
 
   // hides the tabs content
@@ -258,6 +264,7 @@
     THE_BLACK_POT.callDailySpecial()
     THE_BLACK_POT.fetchMenu()
     THE_BLACK_POT.initGoogleMap()
+    THE_BLACK_POT.animateSlide()
   }
 
   $(globalInit)
