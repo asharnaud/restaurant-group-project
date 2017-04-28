@@ -2,10 +2,10 @@
 ;(function () {
   var $ = window.jQuery
   // This retrieves the news api data and replaces the html of the news section with what is retrieved.
-  function dataToNews (data) {
+  function showNewsHtml (data) {
     $('#title').html(data.title + '  ' + data.date_published)
     $('#news').html(data.post)
-    $('#news').html(shortenText('#news', 450))
+    $('#news').html(shortenNewsText('#news', 450))
   }
 
   function responseFail (el) {
@@ -15,10 +15,10 @@
   responseFail($('#news'))
   function fetchNews () {
     var urlNews = 'https://json-data.herokuapp.com/restaurant/news/1'
-    $.get(urlNews).done(dataToNews).fail(responseFail)
+    $.get(urlNews).done(showNewsHtml).fail(responseFail)
   }
   // This shortens the text of the news post and adds ...read more
-  function shortenText (selector, maxLength) {
+  function shortenNewsText (selector, maxLength) {
     var element = $(selector)
     var newsPost = element.html()
     if (newsPost.length > maxLength) {

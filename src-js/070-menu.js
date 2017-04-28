@@ -26,7 +26,7 @@
     obj.forEach(function (item) {
       $('#menu').append(menuDataToHtml(item))
     })
-    THE_BLACK_POT.callDailySpecial()
+    THE_BLACK_POT.fetchDailySpecial()
   }
 
   // render html tags and css classes with the menu api content
@@ -38,10 +38,10 @@
       '<span class="price"> $' + food.price + ' </span>' +
       '<span class="bar-menu">&#8226;</span>' +
       '<div class="food-icon-wrapper">' +
-      '<i title="vegan" class="fa fa-leaf ' + checkIconStatus(food.vegan) + '">' + '</i>' +
-      '<i title="spicy" class="fa fa-thermometer-full ' + checkIconStatus(food.spicy) + '">' + '</i>' +
-      '<i title="allergies" class="fa fa-ambulance ' + checkIconStatus(food.allergies) + '">' + '</i>' +
-      '<i title="favorite" class="fa fa-star ' + checkIconStatus(food.favorite) + '">' + '</i>' +
+      '<i title="vegan" class="fa fa-leaf ' + getClassActive(food.vegan) + '">' + '</i>' +
+      '<i title="spicy" class="fa fa-thermometer-full ' + getClassActive(food.spicy) + '">' + '</i>' +
+      '<i title="allergies" class="fa fa-ambulance ' + getClassActive(food.allergies) + '">' + '</i>' +
+      '<i title="favorite" class="fa fa-star ' + getClassActive(food.favorite) + '">' + '</i>' +
       '</div>' +
       '</div>' +
       '<p class="food-description">' + food.description + '</p>' +
@@ -49,7 +49,7 @@
     return element
   }
 
-  function checkIconStatus (item) {
+  function getClassActive (item) {
     if (item === 1) return 'active'
     return 'inactive'
   }

@@ -46,4 +46,4 @@ grunt
 
 ## Credits
 
-This project was done by myself and [Pablo Jurado](https://github.com/pablo-jurado). Team Cajun!  :fried_shrimp::metal:
+This project was done by [Ashleigh Arnaud](https://github.com/asharnaud) and [Pablo Jurado](https://github.com/pablo-jurado). Team Cajun!  :fried_shrimp::metal:

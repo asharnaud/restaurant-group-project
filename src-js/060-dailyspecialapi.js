@@ -2,7 +2,7 @@
 ;(function () {
   var $ = window.jQuery
   // This retrieves the daily special api data and replaces the html of the today's special section with what is retrieved.
-  function dataToSpecial (data) {
+  function showDailySpecial (data) {
     var id = '#' + data.menu_item_id
     var menuItem = $(id)
     $('#dailySpecial').html(menuItem)
@@ -13,11 +13,11 @@
 
   responseFail($('#dailySpecial'))
 
-  function callDailySpecial () {
+  function fetchDailySpecial () {
     var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'
-    $.get(urlDailySpecial).done(dataToSpecial).fail(responseFail)
+    $.get(urlDailySpecial).done(showDailySpecial).fail(responseFail)
   }
 
   window.THE_BLACK_POT = window.THE_BLACK_POT || {}
-  THE_BLACK_POT.callDailySpecial = callDailySpecial
+  THE_BLACK_POT.fetchDailySpecial = fetchDailySpecial
 })()
