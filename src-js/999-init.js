@@ -8,6 +8,7 @@
     THE_BLACK_POT.fetchDailySpecial()
     THE_BLACK_POT.fetchMenu()
     THE_BLACK_POT.initGoogleMap()
+    THE_BLACK_POT.animateSlide()
   }
 
   $(globalInit)

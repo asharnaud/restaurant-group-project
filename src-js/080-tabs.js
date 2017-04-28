@@ -12,7 +12,7 @@
     var idName = '#' + e.target.dataset.btn
     $('#menu, #story, #reservation, #reviews, #shop').hide()
     $(idName).show()
-    THE_BLACK_POT.setSidebarHeight($(idName))
+    THE_BLACK_POT.resizeSidebarHeight()
   }
 
   // hides the tabs content
