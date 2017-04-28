@@ -1,3 +1,4 @@
+/* global THE_BLACK_POT */
 ;(function () {
   var $ = window.jQuery
   var currentImgIdx = 0
@@ -18,5 +19,6 @@
   }
 
   slides.hide()
-  animateSlide()
+
+  THE_BLACK_POT.animateSlide = animateSlide
 })()

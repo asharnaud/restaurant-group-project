@@ -17,8 +17,5 @@
     setSidebarHeight($(contentId))
   }
 
-  var RESIZE_POLLING_RATE_MS = 200
-  setInterval(resizeSidebarHeight, RESIZE_POLLING_RATE_MS)
-
-  THE_BLACK_POT.setSidebarHeight = setSidebarHeight
+  THE_BLACK_POT.resizeSidebarHeight = resizeSidebarHeight
 })()

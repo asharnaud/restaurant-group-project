@@ -36,6 +36,13 @@
     // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
     var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
     $(imgEl).attr('src', photoUrl)
+    onLoadResizeSidebar(imgEl)
+  }
+
+  function onLoadResizeSidebar (img) {
+    $(img).on('load', function () {
+      THE_BLACK_POT.resizeSidebarHeight()
+    })
   }
 
   THE_BLACK_POT.fetchFlickrImages = fetchFlickrImages
