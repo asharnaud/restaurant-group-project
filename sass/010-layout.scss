@@ -10,6 +10,19 @@ header {
   position: relative;
 }
 
+.main-logo img{
+  width: 30%;
+  margin: 0;
+}
+
+.social-media {
+  display: inline-block;
+  font-size: 1.5em;
+  position: absolute;
+  top: 30%;
+  right: 10px;
+}
+
 .feeds-wrapper {
   display: flex;
   flex-flow: row;
@@ -43,14 +56,8 @@ header {
   flex: 1;
 }
 
-
 .photo-side-column {
   flex: 1;
-  padding: 20px;
-}
-
-footer {
-  text-align: center;
   padding: 20px;
 }
 
@@ -58,15 +65,7 @@ footer {
   display: none;
 }
 
-.main-logo img{
-  width: 30%;
-  margin: 0;
-}
-
-.social-media {
-  display: inline-block;
-  font-size: 1.5em;
-  position: absolute;
-  top: 30%;
-  right: 10px;
+footer {
+  text-align: center;
+  padding: 20px;
 }

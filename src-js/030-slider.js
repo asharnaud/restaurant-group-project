@@ -6,7 +6,8 @@
 
   function animateSlide () {
     $(slides[currentImgIdx]).fadeIn(1000, function () {
-      $(this).delay(4000).fadeOut(1000, checkCurrent)
+      $(this).delay(4000)
+      .fadeOut(1000, checkCurrent)
     })
   }
 

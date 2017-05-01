@@ -20,10 +20,11 @@
 
   // first uses the name to render the title, then loops through each element
   // on the menu and calls the function that returns the html menu elements
-  function createMenuItems (name, obj) {
+  function createMenuItems (name, arr) {
+    name = escapeHtml(name)
     var title = '<h3>' + firstLetterToUpper(name) + '</h3> <hr>'
     $('#menu').append(title)
-    obj.forEach(function (item) {
+    arr.forEach(function (item) {
       $('#menu').append(menuDataToHtml(item))
     })
     THE_BLACK_POT.fetchDailySpecial()
@@ -33,7 +34,7 @@
   function menuDataToHtml (food) {
     var element = '<div id="' + food.id + '" class="food-wrapper">' +
       '<div class="food-title">' +
-      '<h4>' + food.item + '</h4>' +
+      '<h4>' + escapeHtml(food.item) + '</h4>' +
       '<span class="bar-menu">&#8226;</span>' +
       '<span class="price"> $' + food.price + ' </span>' +
       '<span class="bar-menu">&#8226;</span>' +
@@ -44,9 +45,21 @@
       '<i title="favorite" class="fa fa-star ' + getClassActive(food.favorite) + '">' + '</i>' +
       '</div>' +
       '</div>' +
-      '<p class="food-description">' + food.description + '</p>' +
+      '<p class="food-description">' + escapeHtml(food.description) + '</p>' +
       '</div>'
     return element
+  }
+
+  function escapeHtml (unsafe) {
+    if (typeof unsafe === 'string') {
+      var safe = unsafe
+       .replace(/&/g, '&amp;')
+       .replace(/</g, '&lt;')
+       .replace(/>/g, '&gt;')
+       .replace(/"/g, '&quot;')
+       .replace(/'/g, '&#039;')
+      return safe
+    }
   }
 
   function getClassActive (item) {
@@ -58,4 +71,5 @@
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
   THE_BLACK_POT.fetchMenu = fetchMenu
+  THE_BLACK_POT.escapeHtml = escapeHtml
 })()

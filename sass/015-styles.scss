@@ -1,11 +1,3 @@
-$primaryColor: #212121;
-$headerColor: #8E0326;
-$footerColor: #475051;
-$white: #ffffff;
-$gray: #eee;
-$mainFont: 'Libre Baskerville', serif;
-$secondaryFont: 'Quattrocento', serif;
-
 body {
   background-color: $primaryColor;
   color: $primaryColor;
@@ -49,11 +41,6 @@ header {
   display: block;
 }
 
-footer {
-  background-color: $footerColor;
-  color: $gray;
-}
-
 .todays-special {
   // margin: 0 20px;
   p {
@@ -82,7 +69,7 @@ footer {
   }
 }
 
-#map {
+.our-location .map-div {
   padding: 0;
   margin: 0;
   width: 100%;
@@ -191,7 +178,7 @@ footer {
   color: $headerColor;
 }
 
-#title {
+.news-title {
   font-size: 16px;
   font-weight: bold;
 }
@@ -202,4 +189,9 @@ footer {
 
 .shop-tab button {
   color:$headerColor;
+}
+
+footer {
+  background-color: $footerColor;
+  color: $gray;
 }

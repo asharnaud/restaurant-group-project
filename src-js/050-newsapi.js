@@ -3,8 +3,10 @@
   var $ = window.jQuery
   // This retrieves the news api data and replaces the html of the news section with what is retrieved.
   function showNewsHtml (data) {
-    $('#title').html(data.title + '  ' + data.date_published)
-    $('#news').html(data.post)
+    $('#title').html(THE_BLACK_POT.escapeHtml(data.title) + '  ' +
+     THE_BLACK_POT.escapeHtml(data.date_published))
+
+    $('#news').html(THE_BLACK_POT.escapeHtml(data.post))
     $('#news').html(shortenNewsText('#news', 450))
   }
 

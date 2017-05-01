@@ -413,6 +413,17 @@ header {
   padding: 10px 20px;
   position: relative; }
 
+.main-logo img {
+  width: 30%;
+  margin: 0; }
+
+.social-media {
+  display: inline-block;
+  font-size: 1.5em;
+  position: absolute;
+  top: 30%;
+  right: 10px; }
+
 .feeds-wrapper {
   display: flex;
   flex-flow: row;
@@ -443,23 +454,12 @@ header {
   flex: 1;
   padding: 20px; }
 
-footer {
-  text-align: center;
-  padding: 20px; }
-
 .hide {
   display: none; }
 
-.main-logo img {
-  width: 30%;
-  margin: 0; }
-
-.social-media {
-  display: inline-block;
-  font-size: 1.5em;
-  position: absolute;
-  top: 30%;
-  right: 10px; }
+footer {
+  text-align: center;
+  padding: 20px; }
 
 body {
   background-color: #212121;
@@ -495,10 +495,6 @@ header {
   margin: 0 auto;
   display: block; }
 
-footer {
-  background-color: #475051;
-  color: #eee; }
-
 .todays-special p {
   margin: 0; }
 
@@ -517,7 +513,7 @@ footer {
 .todays-special .food-icon-wrapper {
   display: none; }
 
-#map {
+.our-location .map-div {
   padding: 0;
   margin: 0;
   width: 100%;
@@ -604,7 +600,7 @@ footer {
 .news-section a {
   color: #8E0326; }
 
-#title {
+.news-title {
   font-size: 16px;
   font-weight: bold; }
 
@@ -614,15 +610,19 @@ footer {
 .shop-tab button {
   color: #8E0326; }
 
-#menu h3 {
+footer {
+  background-color: #475051;
+  color: #eee; }
+
+.menu-content h3 {
   margin-bottom: 5px; }
-#menu h4 {
+.menu-content h4 {
   margin-top: 0;
   margin-bottom: 5px;
   display: inline-block; }
-#menu .food-wrapper {
+.menu-content .food-wrapper {
   padding: 10px; }
-#menu .bar-menu {
+.menu-content .bar-menu {
   margin: 0 10px;
   color: #8E0326; }
 
