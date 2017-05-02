@@ -9,7 +9,6 @@
     $('.photo-side-column').height(height)
   }
 
-  // checks active tab content evey 200 ms and resize sidebar
   function resizeSidebarHeight () {
     var activeTab = $('.tabs-menu .active')[0]
     var contentTab = activeTab.dataset.btn

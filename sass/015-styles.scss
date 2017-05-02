@@ -1,11 +1,3 @@
-$primaryColor: #212121;
-$headerColor: #8E0326;
-$footerColor: #475051;
-$white: #ffffff;
-$gray: #eee;
-$mainFont: 'Libre Baskerville', serif;
-$secondaryFont: 'Quattrocento', serif;
-
 body {
   background-color: $primaryColor;
   color: $primaryColor;
@@ -23,8 +15,18 @@ h3, i.active {
   color: $headerColor;
 }
 
+a {
+  color: $headerColor;
+  font-weight: bold;
+}
+
 header {
   background-color: $headerColor;
+  transition: all 0.5s;
+}
+
+.main-logo img:hover {
+  filter: drop-shadow(0 0 4px white)
 }
 
 .header-img {
@@ -47,11 +49,6 @@ header {
   margin-right: 10px;
   margin: 0 auto;
   display: block;
-}
-
-footer {
-  background-color: $footerColor;
-  color: $gray;
 }
 
 .todays-special {
@@ -82,7 +79,7 @@ footer {
   }
 }
 
-#map {
+.our-location .map-div {
   padding: 0;
   margin: 0;
   width: 100%;
@@ -185,13 +182,25 @@ footer {
 
 .social-media {
   color: $gray;
+  margin-right: 10px;
+
 }
+
+.social-media i {
+  transition: all .3s;
+}
+
+.social-media i:hover {
+  transition: all 1;
+  color: $primaryColor;
+}
+
 
 .news-section a {
   color: $headerColor;
 }
 
-#title {
+.feed .news-title {
   font-size: 16px;
   font-weight: bold;
 }
@@ -202,4 +211,9 @@ footer {
 
 .shop-tab button {
   color:$headerColor;
+}
+
+footer {
+  background-color: $footerColor;
+  color: $gray;
 }

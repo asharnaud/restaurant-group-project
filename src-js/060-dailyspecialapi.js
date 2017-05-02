@@ -11,7 +11,7 @@
     el.html('Sorry we are having some techinal difficulties.')
   }
 
-  responseFail($('#dailySpecial'))
+  THE_BLACK_POT.loadingResponse($('#dailySpecial'))
 
   function fetchDailySpecial () {
     var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'

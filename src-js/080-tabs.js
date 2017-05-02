@@ -11,7 +11,8 @@
     // takes the data att name from the btn and creates an id
     var idName = '#' + e.target.dataset.btn
     $('#menu, #story, #reservation, #reviews, #shop').hide()
-    $(idName).show()
+    $(idName).fadeToggle()
+
     THE_BLACK_POT.resizeSidebarHeight()
   }
 
