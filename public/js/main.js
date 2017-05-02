@@ -100,14 +100,17 @@
   // The function to get the location for the Google map.
   function initMap () {
     var newOrleans = {lat: 30.0688, lng: -89.930881}
+
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 8,
       center: newOrleans
     })
+
     var marker = new google.maps.Marker({
       position: newOrleans,
       map: map
     })
+
     console.log(marker)
   }
 
@@ -188,9 +191,11 @@
     var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
     $.get(urlMenu).done(renderMenu).fail(responseFail)
   }
+
   function responseFail (el) {
     el.html('Sorry we are having some techinal difficulties.')
   }
+
   // loops through the object and gets name and properties
   function renderMenu (data) {
     for (var item in data) {
@@ -205,9 +210,11 @@
   function createMenuItems (name, arr) {
     var title = '<h3>' + firstLetterToUpper(escapeHtml(name)) + '</h3> <hr>'
     $('#menu').append(title)
+
     arr.forEach(function (item) {
       $('#menu').append(menuDataToHtml(item))
     })
+
     THE_BLACK_POT.fetchDailySpecial()
   }
 
@@ -251,6 +258,7 @@
   function firstLetterToUpper (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
+
   THE_BLACK_POT.fetchMenu = fetchMenu
   THE_BLACK_POT.escapeHtml = escapeHtml
 })()
@@ -269,6 +277,7 @@
     var idName = '#' + e.target.dataset.btn
     $('#menu, #story, #reservation, #reviews, #shop').hide()
     $(idName).fadeToggle()
+
     THE_BLACK_POT.resizeSidebarHeight()
   }
 

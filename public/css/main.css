@@ -474,8 +474,16 @@ h1, h2, h3, h4, h5 {
 h3, i.active {
   color: #8E0326; }
 
+a {
+  color: #8E0326;
+  font-weight: bold; }
+
 header {
-  background-color: #8E0326; }
+  background-color: #8E0326;
+  transition: all 0.5s; }
+
+.main-logo img:hover {
+  filter: drop-shadow(0 0 4px white); }
 
 .header-img {
   height: 500px;
@@ -595,12 +603,20 @@ header {
   width: 100%; }
 
 .social-media {
-  color: #eee; }
+  color: #eee;
+  margin-right: 10px; }
+
+.social-media i {
+  transition: all .3s; }
+
+.social-media i:hover {
+  transition: all 1;
+  color: #212121; }
 
 .news-section a {
   color: #8E0326; }
 
-.news-title {
+.feed .news-title {
   font-size: 16px;
   font-weight: bold; }
 

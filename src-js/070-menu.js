@@ -6,9 +6,11 @@
     var urlMenu = 'https://json-data.herokuapp.com/restaurant/menu/1'
     $.get(urlMenu).done(renderMenu).fail(responseFail)
   }
+
   function responseFail (el) {
     el.html('Sorry we are having some techinal difficulties.')
   }
+
   // loops through the object and gets name and properties
   function renderMenu (data) {
     for (var item in data) {
@@ -23,9 +25,11 @@
   function createMenuItems (name, arr) {
     var title = '<h3>' + firstLetterToUpper(escapeHtml(name)) + '</h3> <hr>'
     $('#menu').append(title)
+
     arr.forEach(function (item) {
       $('#menu').append(menuDataToHtml(item))
     })
+
     THE_BLACK_POT.fetchDailySpecial()
   }
 
@@ -69,6 +73,7 @@
   function firstLetterToUpper (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
+
   THE_BLACK_POT.fetchMenu = fetchMenu
   THE_BLACK_POT.escapeHtml = escapeHtml
 })()

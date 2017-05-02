@@ -15,8 +15,18 @@ h3, i.active {
   color: $headerColor;
 }
 
+a {
+  color: $headerColor;
+  font-weight: bold;
+}
+
 header {
   background-color: $headerColor;
+  transition: all 0.5s;
+}
+
+.main-logo img:hover {
+  filter: drop-shadow(0 0 4px white)
 }
 
 .header-img {
@@ -172,13 +182,25 @@ header {
 
 .social-media {
   color: $gray;
+  margin-right: 10px;
+
 }
+
+.social-media i {
+  transition: all .3s;
+}
+
+.social-media i:hover {
+  transition: all 1;
+  color: $primaryColor;
+}
+
 
 .news-section a {
   color: $headerColor;
 }
 
-.news-title {
+.feed .news-title {
   font-size: 16px;
   font-weight: bold;
 }

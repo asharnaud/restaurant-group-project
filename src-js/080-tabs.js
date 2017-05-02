@@ -12,6 +12,7 @@
     var idName = '#' + e.target.dataset.btn
     $('#menu, #story, #reservation, #reviews, #shop').hide()
     $(idName).fadeToggle()
+
     THE_BLACK_POT.resizeSidebarHeight()
   }
 
