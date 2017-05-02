@@ -21,8 +21,7 @@
   // first uses the name to render the title, then loops through each element
   // on the menu and calls the function that returns the html menu elements
   function createMenuItems (name, arr) {
-    name = escapeHtml(name)
-    var title = '<h3>' + firstLetterToUpper(name) + '</h3> <hr>'
+    var title = '<h3>' + firstLetterToUpper(escapeHtml(name)) + '</h3> <hr>'
     $('#menu').append(title)
     arr.forEach(function (item) {
       $('#menu').append(menuDataToHtml(item))
@@ -58,8 +57,8 @@
        .replace(/>/g, '&gt;')
        .replace(/"/g, '&quot;')
        .replace(/'/g, '&#039;')
-      return safe
     }
+    return safe
   }
 
   function getClassActive (item) {

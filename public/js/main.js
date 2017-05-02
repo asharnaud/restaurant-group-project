@@ -72,20 +72,20 @@
 /* global THE_BLACK_POT */
 ;(function () {
   var $ = window.jQuery
-  var currentImgIdx = 0
+  var currentImgNum = 0
   var slides = $('#slides img')
 
   function animateSlide () {
-    $(slides[currentImgIdx]).fadeIn(1000, function () {
+    $(slides[currentImgNum]).fadeIn(1000, function () {
       $(this).delay(4000)
       .fadeOut(1000, checkCurrent)
     })
   }
 
   function checkCurrent () {
-    currentImgIdx++
-    if (currentImgIdx === slides.length) {
-      currentImgIdx = 0
+    currentImgNum++
+    if (currentImgNum === slides.length) {
+      currentImgNum = 0
     }
     animateSlide()
   }
@@ -122,31 +122,38 @@
   function showNewsHtml (data) {
     $('#title').html(THE_BLACK_POT.escapeHtml(data.title) + '  ' +
      THE_BLACK_POT.escapeHtml(data.date_published))
-
-    $('#news').html(THE_BLACK_POT.escapeHtml(data.post))
-    $('#news').html(shortenNewsText('#news', 450))
+    var scapedHtmlData = THE_BLACK_POT.escapeHtml(data.post)
+    var maxLength = 450
+    var shortNews = shortenString(scapedHtmlData, maxLength)
+    $('#news').html(shortNews)
   }
 
   function responseFail (el) {
     el.html('Sorry we are having some techinal difficulties.')
   }
 
-  responseFail($('#news'))
+  function loadingResponse (el) {
+    el.html('Loading...')
+  }
+
   function fetchNews () {
     var urlNews = 'https://json-data.herokuapp.com/restaurant/news/1'
     $.get(urlNews).done(showNewsHtml).fail(responseFail)
   }
+
   // This shortens the text of the news post and adds ...read more
-  function shortenNewsText (selector, maxLength) {
-    var element = $(selector)
-    var newsPost = element.html()
-    if (newsPost.length > maxLength) {
+  function shortenString (string, maxLength) {
+    if (string.length > maxLength) {
       // the substr extracts the part of the paragraph you don't want by specifing the max length.
-      newsPost = newsPost.substr(0, maxLength) + '...' + '<a>read more</a>'
+      string = string.substr(0, maxLength) + '...' + '<a>read more</a>'
     }
-    return newsPost
+    return string
   }
+
+  loadingResponse($('#news'))
+
   THE_BLACK_POT.fetchNews = fetchNews
+  THE_BLACK_POT.loadingResponse = loadingResponse
 })()
 
 /* global THE_BLACK_POT */
@@ -162,7 +169,7 @@
     el.html('Sorry we are having some techinal difficulties.')
   }
 
-  responseFail($('#dailySpecial'))
+  THE_BLACK_POT.loadingResponse($('#dailySpecial'))
 
   function fetchDailySpecial () {
     var urlDailySpecial = 'https://json-data.herokuapp.com/restaurant/special/1'
@@ -196,8 +203,7 @@
   // first uses the name to render the title, then loops through each element
   // on the menu and calls the function that returns the html menu elements
   function createMenuItems (name, arr) {
-    name = escapeHtml(name)
-    var title = '<h3>' + firstLetterToUpper(name) + '</h3> <hr>'
+    var title = '<h3>' + firstLetterToUpper(escapeHtml(name)) + '</h3> <hr>'
     $('#menu').append(title)
     arr.forEach(function (item) {
       $('#menu').append(menuDataToHtml(item))
@@ -233,8 +239,8 @@
        .replace(/>/g, '&gt;')
        .replace(/"/g, '&quot;')
        .replace(/'/g, '&#039;')
-      return safe
     }
+    return safe
   }
 
   function getClassActive (item) {
