@@ -37,11 +37,6 @@ header {
   }
 }
 
-.tabs-and-photos-container {
-  display: flex;
-  flex-flow: row;
-}
-
 .tabs-wrapper {
   flex: 3;
 }
@@ -56,11 +51,6 @@ header {
   flex: 1;
 }
 
-.photo-side-column {
-  flex: 1;
-  padding: 20px;
-}
-
 .hide {
   display: none;
 }
@@ -68,4 +58,5 @@ header {
 footer {
   text-align: center;
   padding: 20px;
+  margin-top: 20px;
 }

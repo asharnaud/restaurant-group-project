@@ -11,8 +11,8 @@
     $('#news').html(shortNews)
   }
 
-  function responseFail (el) {
-    el.html('Sorry we are having some techinal difficulties.')
+  function responseFail () {
+    $('#news').html('Sorry we are having some techinal difficulties.')
   }
 
   function loadingResponse (el) {

@@ -17,33 +17,38 @@
   }
 
   function fetchFlickrImagesSuccess (data) {
-    renderPicture(data, 32, '#img1')
-    renderPicture(data, 31, '#img2')
-    renderPicture(data, 29, '#img3')
+    $('#img1').attr('src', getImgSrc(data, 32))
+    $('#img2').attr('src', getImgSrc(data, 31))
+    $('#img3').attr('src', getImgSrc(data, 29))
 
-    renderPicture(data, 13, '#dailySpecialImg')
-    renderPicture(data, 44, '#storyImg')
-    renderPicture(data, 5, '.side-photo-1')
-    renderPicture(data, 30, '.side-photo-2')
-    renderPicture(data, 14, '.side-photo-3')
+    $('#dailySpecialImg').attr('src', getImgSrc(data, 13))
+    $('#storyImg').attr('src', getImgSrc(data, 44))
+
+    $('.side-photo-1').attr('src', getImgSrc(data, 75))
+    $('.side-photo-2').attr('src', getImgSrc(data, 30))
+    $('.side-photo-3').attr('src', getImgSrc(data, 14))
+    $('.side-photo-4').attr('src', getImgSrc(data, 5))
+    $('.side-photo-5').attr('src', getImgSrc(data, 13))
+    $('.side-photo-6').attr('src', getImgSrc(data, 1))
+    $('.side-photo-7').attr('src', getImgSrc(data, 4))
+    $('.side-photo-8').attr('src', getImgSrc(data, 36))
+    $('.side-photo-9').attr('src', getImgSrc(data, 28))
+    $('.side-photo-10').attr('src', getImgSrc(data, 40))
+    $('.side-photo-11').attr('src', getImgSrc(data, 13))
+    $('.side-photo-12').attr('src', getImgSrc(data, 5))
+    $('.side-photo-13').attr('src', getImgSrc(data, 34))
+    $('.side-photo-14').attr('src', getImgSrc(data, 29))
   }
 
-  function renderPicture (data, num, imgEl) {
-    var photoId = data.photos.photo[num].id
-    var photoFarmId = data.photos.photo[num].farm
-    var photoServer = data.photos.photo[num].server
-    var photoSecret = data.photos.photo[num].secret
+  function getImgSrc (arr, num) {
+    var photo = arr.photos.photo
     // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
-    var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
-    $(imgEl).attr('src', photoUrl)
-    onLoadResizeSidebar(imgEl)
+    var photoUrl = 'https://farm' + photo[num].farm + '.staticflickr.com/' +
+     photo[num].server + '/' + photo[num].id + '_' + photo[num].secret + '.jpg'
+
+    return photoUrl
   }
 
-  function onLoadResizeSidebar (img) {
-    $(img).on('load', function () {
-      THE_BLACK_POT.resizeSidebarHeight()
-    })
-  }
-
+  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
   THE_BLACK_POT.fetchFlickrImages = fetchFlickrImages
 })()
