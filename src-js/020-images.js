@@ -38,13 +38,10 @@
     $('.side-photo-12').attr('src', getImgSrc(data, 5))
     $('.side-photo-13').attr('src', getImgSrc(data, 34))
     $('.side-photo-14').attr('src', getImgSrc(data, 29))
-
-    onLoadResizeSidebar('#dailySpecialImg')
   }
 
   function getImgSrc (arr, num) {
     var photo = arr.photos.photo
-
     // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
     var photoUrl = 'https://farm' + photo[num].farm + '.staticflickr.com/' +
      photo[num].server + '/' + photo[num].id + '_' + photo[num].secret + '.jpg'
@@ -52,11 +49,6 @@
     return photoUrl
   }
 
-  function onLoadResizeSidebar (img) {
-    $(img).on('load', function () {
-      // THE_BLACK_POT.resizeSidebarHeight()
-    })
-  }
-
+  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
   THE_BLACK_POT.fetchFlickrImages = fetchFlickrImages
 })()

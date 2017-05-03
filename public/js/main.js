@@ -1,27 +1,6 @@
 /* global THE_BLACK_POT */
 ;(function () {
   var $ = window.jQuery
-  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
-
-  // This gets the height of the story tab content and makes the photo side column the same height.
-  function setSidebarHeight (element) {
-    var height = element.height()
-    $('.photo-side-column').height(height)
-  }
-
-  function resizeSidebarHeight () {
-    var activeTab = $('.tabs-menu .active')[0]
-    var contentTab = activeTab.dataset.btn
-    var contentId = '#' + contentTab
-    // setSidebarHeight($(contentId))
-  }
-
-  THE_BLACK_POT.resizeSidebarHeight = resizeSidebarHeight
-})()
-
-/* global THE_BLACK_POT */
-;(function () {
-  var $ = window.jQuery
   // This is the function that retrieves Flickr photos
   var FLICKR_API_URL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0de23a6e8692914d68addb1c4dab779&format=json&tags=creole?food&text=creole?food&nojsoncallback=?'
   function fetchFlickrImages () {
@@ -59,13 +38,10 @@
     $('.side-photo-12').attr('src', getImgSrc(data, 5))
     $('.side-photo-13').attr('src', getImgSrc(data, 34))
     $('.side-photo-14').attr('src', getImgSrc(data, 29))
-
-    onLoadResizeSidebar('#dailySpecialImg')
   }
 
   function getImgSrc (arr, num) {
     var photo = arr.photos.photo
-
     // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
     var photoUrl = 'https://farm' + photo[num].farm + '.staticflickr.com/' +
      photo[num].server + '/' + photo[num].id + '_' + photo[num].secret + '.jpg'
@@ -73,12 +49,7 @@
     return photoUrl
   }
 
-  function onLoadResizeSidebar (img) {
-    $(img).on('load', function () {
-      // THE_BLACK_POT.resizeSidebarHeight()
-    })
-  }
-
+  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
   THE_BLACK_POT.fetchFlickrImages = fetchFlickrImages
 })()
 
@@ -105,6 +76,7 @@
 
   slides.hide()
 
+  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
   THE_BLACK_POT.animateSlide = animateSlide
 })()
 

@@ -21,5 +21,6 @@
 
   slides.hide()
 
+  window.THE_BLACK_POT = window.THE_BLACK_POT || {}
   THE_BLACK_POT.animateSlide = animateSlide
 })()
