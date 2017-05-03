@@ -577,11 +577,31 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
-  .photo-container .pic-colum {
-    border: solid 1px black;
-    flex-grow: 1;
-    height: 400px;
-    min-width: 200px; }
+
+.pic-main-col {
+  border: solid 1px black;
+  flex-grow: 1;
+  height: 550px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column; }
+
+.pic-inner-col {
+  border: solid 1px red;
+  width: 100%; }
+
+.pic-row {
+  border: solid 1px green;
+  width: 100%; }
+
+.flex1 {
+  flex: 1; }
+
+.flex2 {
+  flex: 2; }
+
+.flex3 {
+  flex: 3; }
 
 .gradient-div {
   background: -webkit-linear-gradient(rgba(252, 136, 136, 0) 0%, #8e0326 60%);
