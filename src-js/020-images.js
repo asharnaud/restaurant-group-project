@@ -17,26 +17,31 @@
   }
 
   function fetchFlickrImagesSuccess (data) {
-    renderPicture(data, 32, '#img1')
-    renderPicture(data, 31, '#img2')
-    renderPicture(data, 29, '#img3')
+    getImgSrc(data, 5, '.side-photo-1')
+    getImgSrc(data, 30, '.side-photo-2')
+    getImgSrc(data, 14, '.side-photo-3')
 
-    renderPicture(data, 13, '#dailySpecialImg')
-    renderPicture(data, 44, '#storyImg')
-    renderPicture(data, 5, '.side-photo-1')
-    renderPicture(data, 30, '.side-photo-2')
-    renderPicture(data, 14, '.side-photo-3')
+    $('#img1').attr('src', getImgSrc(data, 32))
+    $('#img2').attr('src', getImgSrc(data, 31))
+    $('#img3').attr('src', getImgSrc(data, 29))
+
+    $('#dailySpecialImg').attr('src', getImgSrc(data, 13))
+    $('#storyImg').attr('src', getImgSrc(data, 44))
+    $('.side-photo-1').attr('src', getImgSrc(data, 5))
+    $('.side-photo-2').attr('src', getImgSrc(data, 30))
+    $('.side-photo-3').attr('src', getImgSrc(data, 14))
+
+    onLoadResizeSidebar('#dailySpecialImg')
   }
 
-  function renderPicture (data, num, imgEl) {
-    var photoId = data.photos.photo[num].id
-    var photoFarmId = data.photos.photo[num].farm
-    var photoServer = data.photos.photo[num].server
-    var photoSecret = data.photos.photo[num].secret
+  function getImgSrc (arr, num) {
+    var photo = arr.photos.photo
+
     // https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
-    var photoUrl = 'https://farm' + photoFarmId + '.staticflickr.com/' + photoServer + '/' + photoId + '_' + photoSecret + '.jpg'
-    $(imgEl).attr('src', photoUrl)
-    onLoadResizeSidebar(imgEl)
+    var photoUrl = 'https://farm' + photo[num].farm + '.staticflickr.com/' +
+     photo[num].server + '/' + photo[num].id + '_' + photo[num].secret + '.jpg'
+
+    return photoUrl
   }
 
   function onLoadResizeSidebar (img) {

@@ -8,7 +8,7 @@
   }
 
   function responseFail (el) {
-    el.html('Sorry we are having some techinal difficulties.')
+    $('#menu').html('Sorry we are having some techinal difficulties.')
   }
 
   // loops through the object and gets name and properties
@@ -23,12 +23,13 @@
   // first uses the name to render the title, then loops through each element
   // on the menu and calls the function that returns the html menu elements
   function createMenuItems (name, arr) {
-    var title = '<h3>' + firstLetterToUpper(escapeHtml(name)) + '</h3> <hr>'
-    $('#menu').append(title)
+    var menu = '<h3>' + firstLetterToUpper(escapeHtml(name)) + '</h3> <hr>'
 
     arr.forEach(function (item) {
-      $('#menu').append(menuDataToHtml(item))
+      menu += menuDataToHtml(item)
     })
+
+    $('#menu').append(menu)
 
     THE_BLACK_POT.fetchDailySpecial()
   }
@@ -54,15 +55,12 @@
   }
 
   function escapeHtml (unsafe) {
-    if (typeof unsafe === 'string') {
-      var safe = unsafe
+    return unsafe
        .replace(/&/g, '&amp;')
        .replace(/</g, '&lt;')
        .replace(/>/g, '&gt;')
        .replace(/"/g, '&quot;')
        .replace(/'/g, '&#039;')
-    }
-    return safe
   }
 
   function getClassActive (item) {

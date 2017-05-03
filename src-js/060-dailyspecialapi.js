@@ -7,8 +7,8 @@
     var menuItem = $(id)
     $('#dailySpecial').html(menuItem)
   }
-  function responseFail (el) {
-    el.html('Sorry we are having some techinal difficulties.')
+  function responseFail () {
+    $('#dailySpecial').html('Sorry we are having some techinal difficulties.')
   }
 
   THE_BLACK_POT.loadingResponse($('#dailySpecial'))

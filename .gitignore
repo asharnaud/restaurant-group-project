@@ -2,3 +2,5 @@
 *.map
 node_modules
 *.log
+public/js/main.min.js
+public/js/main.js
