@@ -10,12 +10,12 @@
     $(this).addClass('active')
     // takes the data att name from the btn and creates an id
     var idName = '#' + e.target.dataset.btn
-    $('#menu, #story, #reservation, #reviews, #shop').hide()
+    $('#menu, #story, #reservation, #reviews, #shop, #photos').hide()
     $(idName).fadeToggle()
 
     THE_BLACK_POT.resizeSidebarHeight()
   }
 
   // hides the tabs content
-  $('#menu, #reservation, #reviews, #shop').hide()
+  $('#menu, #reservation, #reviews, #shop, #photos').hide()
 })()

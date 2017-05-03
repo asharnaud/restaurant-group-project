@@ -46,7 +46,7 @@
 
   function onLoadResizeSidebar (img) {
     $(img).on('load', function () {
-      THE_BLACK_POT.resizeSidebarHeight()
+      // THE_BLACK_POT.resizeSidebarHeight()
     })
   }
 

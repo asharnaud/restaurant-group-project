@@ -13,7 +13,7 @@
     var activeTab = $('.tabs-menu .active')[0]
     var contentTab = activeTab.dataset.btn
     var contentId = '#' + contentTab
-    setSidebarHeight($(contentId))
+    // setSidebarHeight($(contentId))
   }
 
   THE_BLACK_POT.resizeSidebarHeight = resizeSidebarHeight
@@ -67,7 +67,7 @@
 
   function onLoadResizeSidebar (img) {
     $(img).on('load', function () {
-      THE_BLACK_POT.resizeSidebarHeight()
+      // THE_BLACK_POT.resizeSidebarHeight()
     })
   }
 
@@ -278,14 +278,14 @@
     $(this).addClass('active')
     // takes the data att name from the btn and creates an id
     var idName = '#' + e.target.dataset.btn
-    $('#menu, #story, #reservation, #reviews, #shop').hide()
+    $('#menu, #story, #reservation, #reviews, #shop, #photos').hide()
     $(idName).fadeToggle()
 
     THE_BLACK_POT.resizeSidebarHeight()
   }
 
   // hides the tabs content
-  $('#menu, #reservation, #reviews, #shop').hide()
+  $('#menu, #reservation, #reviews, #shop, #photos').hide()
 })()
 
 ;(function () {

@@ -435,10 +435,6 @@ header {
     min-width: 250px;
     height: 300px; }
 
-.tabs-and-photos-container {
-  display: flex;
-  flex-flow: row; }
-
 .tabs-wrapper {
   flex: 3; }
 
@@ -459,7 +455,8 @@ header {
 
 footer {
   text-align: center;
-  padding: 20px; }
+  padding: 20px;
+  margin-top: 20px; }
 
 body {
   background-color: #212121;
@@ -532,9 +529,6 @@ header {
 .our-location p {
   text-align: center; }
 
-.tabs-and-photos-container {
-  margin: 10px 10px 0 10px; }
-
 .tabs {
   background-color: #8E0326;
   border: solid 2px #8E0326;
@@ -572,24 +566,22 @@ header {
 .tabs-wrapper {
   background-color: #eee;
   color: #212121;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin: 10px;
   padding: 20px; }
 
 .story-photo {
   width: 100%; }
 
-.photo-side-column {
-  background-color: #8E0326;
-  margin-bottom: 20px;
-  overflow: hidden;
-  padding-bottom: 111px;
-  position: relative; }
-  .photo-side-column h3 {
-    color: white; }
-  .photo-side-column img {
-    width: 100%;
-    padding-bottom: 10px; }
+.photo-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .photo-container .pic-colum {
+    border: solid 1px black;
+    flex-grow: 1;
+    height: 400px;
+    min-width: 200px; }
 
 .gradient-div {
   background: -webkit-linear-gradient(rgba(252, 136, 136, 0) 0%, #8e0326 60%);
@@ -600,7 +592,8 @@ header {
   height: 100px;
   left: 0;
   position: absolute;
-  width: 100%; }
+  width: 100%;
+  display: none; }
 
 .social-media {
   color: #eee;
@@ -659,10 +652,7 @@ footer {
     height: 50vw; }
 
   .photo-side-column {
-    display: none; }
-
-  .tabs-wrapper {
-    margin-right: 0; } }
+    display: none; } }
 /* For mobile phones: */
 @media only screen and (max-width: 480px) {
   .main-logo img {

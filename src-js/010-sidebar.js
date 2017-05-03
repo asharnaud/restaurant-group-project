@@ -13,7 +13,7 @@
     var activeTab = $('.tabs-menu .active')[0]
     var contentTab = activeTab.dataset.btn
     var contentId = '#' + contentTab
-    setSidebarHeight($(contentId))
+    // setSidebarHeight($(contentId))
   }
 
   THE_BLACK_POT.resizeSidebarHeight = resizeSidebarHeight
