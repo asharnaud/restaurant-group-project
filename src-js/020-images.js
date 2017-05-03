@@ -17,19 +17,27 @@
   }
 
   function fetchFlickrImagesSuccess (data) {
-    getImgSrc(data, 5, '.side-photo-1')
-    getImgSrc(data, 30, '.side-photo-2')
-    getImgSrc(data, 14, '.side-photo-3')
-
     $('#img1').attr('src', getImgSrc(data, 32))
     $('#img2').attr('src', getImgSrc(data, 31))
     $('#img3').attr('src', getImgSrc(data, 29))
 
     $('#dailySpecialImg').attr('src', getImgSrc(data, 13))
     $('#storyImg').attr('src', getImgSrc(data, 44))
-    $('.side-photo-1').attr('src', getImgSrc(data, 5))
+
+    $('.side-photo-1').attr('src', getImgSrc(data, 75))
     $('.side-photo-2').attr('src', getImgSrc(data, 30))
     $('.side-photo-3').attr('src', getImgSrc(data, 14))
+    $('.side-photo-4').attr('src', getImgSrc(data, 5))
+    $('.side-photo-5').attr('src', getImgSrc(data, 13))
+    $('.side-photo-6').attr('src', getImgSrc(data, 1))
+    $('.side-photo-7').attr('src', getImgSrc(data, 4))
+    $('.side-photo-8').attr('src', getImgSrc(data, 36))
+    $('.side-photo-9').attr('src', getImgSrc(data, 28))
+    $('.side-photo-10').attr('src', getImgSrc(data, 40))
+    $('.side-photo-11').attr('src', getImgSrc(data, 13))
+    $('.side-photo-12').attr('src', getImgSrc(data, 5))
+    $('.side-photo-13').attr('src', getImgSrc(data, 34))
+    $('.side-photo-14').attr('src', getImgSrc(data, 29))
 
     onLoadResizeSidebar('#dailySpecialImg')
   }
