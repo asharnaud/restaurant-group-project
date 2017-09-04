@@ -17,13 +17,6 @@
   }
 
   function fetchFlickrImagesSuccess (data) {
-    $('#img1').attr('src', getImgSrc(data, 32))
-    $('#img2').attr('src', getImgSrc(data, 31))
-    $('#img3').attr('src', getImgSrc(data, 29))
-
-    $('#dailySpecialImg').attr('src', getImgSrc(data, 13))
-    $('#storyImg').attr('src', getImgSrc(data, 44))
-
     $('.side-photo-1').attr('src', getImgSrc(data, 75))
     $('.side-photo-2').attr('src', getImgSrc(data, 30))
     $('.side-photo-3').attr('src', getImgSrc(data, 14))
